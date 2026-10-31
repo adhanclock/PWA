@@ -25,7 +25,7 @@ export function register() {
           });
         /*
         navigator.serviceWorker.addEventListener('controllerchange', () => {
-          toast.success('You AzanClock app is now up-to-date.', { toastId: "PWAUpdatedVersion", autoClose: 5000 });
+          toast.success('You AdhanClock app is now up-to-date.', { toastId: "PWAUpdatedVersion", autoClose: 5000 });
         });
         */
       } else {

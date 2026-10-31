@@ -22,16 +22,16 @@ export const Audios = [
     { id: 1, source: audio1, name: 'Bosnian Style by Eldin Huseinbegovic (3:11)', isAzan: true, isFajrAzan: false, isAlarm: false },
     { id: 2, source: audio2, name: 'Dubai Style by Abdulrahman Al-Hindi (2:32)', isAzan: true, isFajrAzan: false, isAlarm: false },
     { id: 3, source: audio3, name: 'Egyptian Style (3:25)', isAzan: true, isFajrAzan: false, isAlarm: false },
-    { id: 4, source: audio4, name: 'Heartwarming Azan Recitation (3:47)', isAzan: true, isFajrAzan: false, isAlarm: false },
+    { id: 4, source: audio4, name: 'Heartwarming Adhan Recitation (3:47)', isAzan: true, isFajrAzan: false, isAlarm: false },
     { id: 5, source: audio5, name: 'Makkah Al-Mukarramah Style (3:44)', isAzan: true, isFajrAzan: false, isAlarm: false },
     { id: 6, source: audio6, name: 'Masjid Al-Aqsa Style (4:07)', isAzan: true, isFajrAzan: false, isAlarm: false },
     { id: 7, source: audio7, name: 'Mishary Al-Afasy (4:17)', isAzan: true, isFajrAzan: false, isAlarm: false },
     { id: 8, source: audio8, name: 'Ottoman Style by Mawlana Shaykh Nazim (2:38)', isAzan: true, isFajrAzan: false, isAlarm: false },
     { id: 9, source: audio9, name: 'Turkish Style by Remzi Er (4:08)', isAzan: true, isFajrAzan: false, isAlarm: false },
-    { id: 10, source: audio10, name: 'Fajr Azan by Mansoor Az-Zahrani (3:26)', isAzan: false, isFajrAzan: true, isAlarm: false },
-    { id: 11, source: audio11, name: 'Fajr Azan by Mishary Al-Afasy (3:24)', isAzan: false, isFajrAzan: true, isAlarm: false },
-    { id: 12, source: audio12, name: 'Madina Fajr Azan by Shaykh Surayhi (4:54)', isAzan: false, isFajrAzan: true, isAlarm: false },
-    { id: 13, source: audio13, name: 'Fajr Azan by Shaykh Ali Ahmed Mullah (4:35)', isAzan: false, isFajrAzan: true, isAlarm: false },
+    { id: 10, source: audio10, name: 'Fajr Adhan by Mansoor Az-Zahrani (3:26)', isAzan: false, isFajrAzan: true, isAlarm: false },
+    { id: 11, source: audio11, name: 'Fajr Adhan by Mishary Al-Afasy (3:24)', isAzan: false, isFajrAzan: true, isAlarm: false },
+    { id: 12, source: audio12, name: 'Madina Fajr Adhan by Shaykh Surayhi (4:54)', isAzan: false, isFajrAzan: true, isAlarm: false },
+    { id: 13, source: audio13, name: 'Fajr Adhan by Shaykh Ali Ahmed Mullah (4:35)', isAzan: false, isFajrAzan: true, isAlarm: false },
     { id: 14, source: audio14, name: 'Muhammad Al-Sharif (3:29)', isAzan: true, isFajrAzan: true, isAlarm: false },
     { id: 101, source: audio101, name: 'Bismillahirrahmanirrahim (0:05)', isAzan: true, isFajrAzan: true, isAlarm: true },
     { id: 102, source: audio102, name: 'Soft Beep Sound (0:01)', isAzan: true, isFajrAzan: true, isAlarm: true },
@@ -52,7 +52,7 @@ export const Azans = Audios.filter(a => a.isAzan);
 export const FajrAzans = Audios.filter(a => a.isFajrAzan);
 export const AlarmAudios = Audios.filter(a => a.isAlarm);
 
-export class AAA { /* Azan or Alarm Audio */
+export class AAA { /* Adhan or Alarm Audio */
     constructor(id, time, isPlayed) {
         this.id = id;
         this.time = time;

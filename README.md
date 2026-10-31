@@ -1,8 +1,8 @@
-# AzanClock.com — ReactJS PWA Application
+# AdhanClock.com — ReactJS PWA Application
 
-Transform any device into a fully functional **Azan Clock** — for free!
+Transform any device into a fully functional **Adhan Clock** — for free!
 
-Use [AzanClock.com](https://azanclock.com) to display accurate prayer times and play the adhan (call to prayer) automatically on:
+Use [AdhanClock.com](https://adhanclock.com) to display accurate prayer times and play the adhan (call to prayer) automatically on:
 
 - 🟢 **Android tablets & phones**
 - 🟢 **Amazon Echo Show devices**
@@ -17,10 +17,10 @@ Use [AzanClock.com](https://azanclock.com) to display accurate prayer times and 
 
 ## 🚀 Get Started
 
-1. Open [AzanClock.com](https://azanclock.com) in your browser.
+1. Open [AdhanClock.com](https://adhanclock.com) in your browser.
 2. Add it to your home screen (PWA) for a native app-like experience.
 3. Configure your location & prayer time settings.
-4. Enjoy an accurate, beautiful Azan Clock — anywhere.
+4. Enjoy an accurate, beautiful Adhan Clock — anywhere.
 
 ## <img src="public/zakattracker-logo.svg" alt="ZakatTracker Logo" width="24" height="24"> ZakatTracker.com
 

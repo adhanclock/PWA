@@ -7,7 +7,7 @@ export default function SilkSilentAudio() {
        const silencePlayer = useRef(null);
        const [isSilkOn, setIsSilkOn] = useState(false);
        const setSilkOn = (event) => {
-              showMsg('AzanClock is set to be always ON!');
+              showMsg('AdhanClock is set to be always ON!');
               setIsSilkOn(true);
               if (silencePlayer.current) {
                      silencePlayer.current.currentTime = 0;
@@ -24,7 +24,7 @@ export default function SilkSilentAudio() {
        };
        return (
               <div id='silkSettingDiv' style={{ display: isSilkOn ? 'none' : 'block' }} >
-                     <button className='btn btn-sm btn-primary' onClick={setSilkOn}>Click here to keep AzanClock always ON on your Amazon device</button>
+                     <button className='btn btn-sm btn-primary' onClick={setSilkOn}>Click here to keep AdhanClock always ON on your Amazon device</button>
                      <audio id='silencePlayer' src={audioSilence} ref={silencePlayer} onPause={silenceContinue} onEnded={silenceContinue} />
               </div>
        )

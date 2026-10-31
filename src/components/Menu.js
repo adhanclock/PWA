@@ -70,7 +70,7 @@ export default function Menu() {
                             <div className='d-flex flex-row justify-content-between align-items-center gap-3 mt-3'>
 
                                 {!navigator.onLine ? (<div>
-                                    <span title='Looks like you are no longer connected to the Internet. No worries. AzanClock will still work.' className='badge'>
+                                    <span title='Looks like you are no longer connected to the Internet. No worries. AdhanClock will still work.' className='badge'>
                                         {FontAwesome.Plug} Offline
                                     </span>
                                 </div>) : null}

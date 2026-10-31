@@ -56,7 +56,7 @@ export default function Clock() {
     useEffect(() => {
 
         updateBackground(background);
-        document.title = 'AzanClock • ' + currentVakit.name + ' • Next: ' + nextVakit.name + ' @ ' + nextVakit.time + ' in ' + nextText + ' • ' + locationSettings.address;
+        document.title = 'AdhanClock • ' + currentVakit.name + ' • Next: ' + nextVakit.name + ' @ ' + nextVakit.time + ' in ' + nextText + ' • ' + locationSettings.address;
 
         if (simplified)
             return;

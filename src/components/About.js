@@ -11,7 +11,7 @@ export default function About() {
 
             As Salamu Alaykum
             <p></p>
-            Use AzanClock.com to turn any Android, Amazon Echo or Raspberry Pi device into an actual azan clock.
+            Use AdhanClock.com to turn any Android, Amazon Echo or Raspberry Pi device into an actual adhan clock.
             <p></p>
 
             <div className='d-flex flex-column gap-2'>
@@ -36,14 +36,14 @@ export default function About() {
 
             <div className='badge bg-warning text-dark'>Android or RPi Devices</div>
             <div className='ps-1 mt-1'>
-                Add azanclock.com to your home screen and run it.
+                Add adhanclock.com to your home screen and run it.
             </div>
 
             <p></p>
 
             <div className='badge bg-warning text-dark'>Amazon Echo Devices</div>
             <div className='ps-1 mt-1'>
-                Say, "Alexa, open Silk browser", navigate to azanclock.com and click on the button to keep it always ON.
+                Say, "Alexa, open Silk browser", navigate to adhanclock.com and click on the button to keep it always ON.
             </div>
 
             <div className='rtl fs-5 text-center mt-4 bg-success rounded p-2'>
@@ -97,13 +97,13 @@ export default function About() {
                     <a className='whiteLink fs-3' title='Privacy Policy' href="/privacy-policy/" rel="noreferrer">{FontAwesome.Shield}</a>
                 </div>
                 <div>
-                    <a className='whiteLink fs-3' title='Open Source Code' href="https://github.com/azanclock/pwa" rel="noreferrer">{FontAwesome.Github}</a>
+                    <a className='whiteLink fs-3' title='Open Source Code' href="https://github.com/adhanclock/pwa" rel="noreferrer">{FontAwesome.Github}</a>
                 </div>
                 <div>
                     <a className='whiteLink fs-3' title='Prayer Times Chrome Extension' href="https://chrome.google.com/webstore/detail/prayer-times-chrome-exten/fbkmgnkliklgbmanjkmiihkdioepnkce">{FontAwesome.Chrome}</a>
                 </div>
                 <div>
-                    <a className='whiteLink fs-3' title='info@azanclock.com' href="mailto:info@azanclock.com">{FontAwesome.Envelope}</a>
+                    <a className='whiteLink fs-3' title='adhanclock@gmail.com' href="mailto:adhanclock@gmail.com">{FontAwesome.Envelope}</a>
                 </div>
             </div>
 

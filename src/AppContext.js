@@ -63,25 +63,6 @@ export default function AppContextProvider() {
                 setOutput(SmartAzanClock.run('on-visible-again'));
             }
         });
-        // If not running under azanclock.com, show a persistent toast advising re-install
-        try {
-            const hostname = (window.location.hostname || '').toLowerCase();
-            const normalized = hostname.replace(/^www\./, '');
-            // show the message when the site is not running under azanclock.com
-            if (normalized !== 'azanclock.com') {
-                showPersistentToast(
-                    <div>
-                        <div>As-salamu alaykum!</div>
-                        <div><strong>Our app has moved to a shorter & easier domain name: AzanClock.com.</strong></div>
-                        <div style={{ marginTop: 6 }}>
-                            Please remove the currently installed app and re-install it from AzanClock.com to continue receiving updates. Sorry for the inconvenience and thank you for your cooperation.
-                        </div>
-                    </div>
-                );
-            }
-        } catch (e) {
-            // ignore errors (e.g., window not available)
-        }
     }, [])
 
     const showMsg = (msg, type) => {
