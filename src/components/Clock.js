@@ -18,7 +18,7 @@ export default function Clock() {
     const gray = '#4B4E54';
     /* dim mode uses dark red: gentlest on night vision and sleep */
     const nightRed = '#CC3322';
-    const nightRedDark = '#5A1510';
+    const nightRedDark = '#7A2016';
     const white = dim === 1 ? nightRed : '#D4D4D4';
     const silver = nightRed;
 

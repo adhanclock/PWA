@@ -38,16 +38,6 @@ export const Audios = [
     { id: 103, source: audio103, name: 'As-Salatu Khayrun Minan Nawm (0:28)', isAzan: false, isFajrAzan: false, isAlarm: true }
 ]
 
-/* Surahs commonly recited after Salah */
-export const QuranAudios = [
-    { id: '018', name: 'Al-Kahf', reciter: 'Shaykh Maher Al-Muaiqly', mp3: 'https://server12.mp3quran.net/maher/018.mp3' },
-    { id: '032', name: 'Al-Sajdah', reciter: 'Shaykh Maher Al-Muaiqly', mp3: 'https://server12.mp3quran.net/maher/032.mp3' },
-    { id: '036', name: 'YaSin', reciter: 'Shaykh Maher Al-Muaiqly', mp3: 'https://server12.mp3quran.net/maher/036.mp3' },
-    { id: '067', name: 'Al-Mulk', reciter: 'Shaykh Maher Al-Muaiqly', mp3: 'https://server12.mp3quran.net/maher/067.mp3' },
-    { id: '076', name: 'Al-Insan', reciter: 'Shaykh Maher Al-Muaiqly', mp3: 'https://server12.mp3quran.net/maher/076.mp3' },
-    { id: '078', name: 'An-Naba', reciter: 'Shaykh Maher Al-Muaiqly', mp3: 'https://server12.mp3quran.net/maher/078.mp3' }
-]
-
 export const Azans = Audios.filter(a => a.isAzan);
 export const FajrAzans = Audios.filter(a => a.isFajrAzan);
 export const AlarmAudios = Audios.filter(a => a.isAlarm);

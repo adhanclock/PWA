@@ -14,7 +14,7 @@ import { format12 } from '../scripts/SmartAzanClock';
 export default function Settings() {
 
     const { vakits, arcVakits, calculationSettings, locationSettings, deviceSettings, azanSettings,
-        offsetSettings, updateOffset, previewAudio, oneThirdTime, twoThirdTime, midnightTime } = useContext(AppContext)
+        offsetSettings, updateOffset, previewAudio, previewVakit, oneThirdTime, twoThirdTime, midnightTime } = useContext(AppContext)
 
     const CalculationMethodValues = [];
     Object.keys(CalculationMethods).forEach(k => {
@@ -48,10 +48,10 @@ export default function Settings() {
                         <DropDown name={'azanSettings.' + cVakit} selectedValue={azanValue} values={values} disabled={!azanEnabled} />
                     </div>
                     <div className='col-2'>
-                        <button onClick={() => { previewAudio(azanValue * 1); document.activeElement.blur(); }}
+                        <button onClick={() => { previewAudio(azanValue * 1, cVakit); document.activeElement.blur(); }}
                             type='button'
                             disabled={!azanEnabled}
-                            className='btn btn-sm btn-primary col-12'>{FontAwesome.Play}</button>
+                            className={'btn btn-sm col-12 ' + ((previewVakit === cVakit) ? 'btn-danger' : 'btn-primary')}>{(previewVakit === cVakit) ? FontAwesome.Stop : FontAwesome.Play}</button>
                     </div>
                     <div>
                         <div className='d-flex flex-row gap-1 align-items-center'>

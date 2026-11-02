@@ -1,9 +1,13 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Offcanvas from 'react-bootstrap/Offcanvas'
 import { Tab } from 'bootstrap';
 import { Tabs } from 'react-bootstrap';
 import Settings from './Settings'
-import Recitations from './Recitations';
+import Quran from './Quran';
+import Calendar from './Calendar';
+import Salawat from './Salawat';
+import salawatIcon from '../images/salawat.svg';
+import { QuranPlayer } from '../scripts/QuranPlayer';
 import Alarms from './Alarms';
 import About from './About';
 import { AppContext } from '../AppContext';
@@ -14,16 +18,20 @@ export default function Menu() {
 
     const { showMenu, setShowMenu, deviceSettings, refreshClock } = useContext(AppContext)
 
-    const recitationsTab = useRef(null);
-
-    const goRecitations = () => {
-        recitationsTab.current.click();
-    }
+    /* opening the menu while the Qur'an is playing lands on the Qur'an tab instead of Settings */
+    useEffect(() => {
+        if (!showMenu || !navigator.onLine || !QuranPlayer.getState().isPlaying) return;
+        const t = setTimeout(() => {
+            const tab = document.getElementById('quran-tab');
+            if (tab) tab.click();
+        }, 50);
+        return () => clearTimeout(t);
+    }, [showMenu]);
 
     return (
         <Offcanvas placement="end" scroll="false" show={showMenu} onHide={() => setShowMenu(false)} className="bg-dark">
-            <Offcanvas.Header className='pb-2'>
-                <div className='d-flex flex-row w-100 align-items-start justify-content-between'>
+            <Offcanvas.Header className='py-2'>
+                <div className='d-flex flex-row w-100 align-items-center justify-content-between'>
                     <div id='topMenu'>
                         <ul className="nav nav-pills">
                             <li className='nav-item'>
@@ -33,19 +41,34 @@ export default function Menu() {
                                 </button>
                             </li>
 
-                            {navigator.onLine ? (<li className='nav-item'>
-                                <button ref={recitationsTab} className="nav-link fs-4" id="recitations-tab" data-bs-toggle="tab"
-                                    data-bs-target="#recitations" type="button" role="tab">
-                                    {FontAwesome.Book}
-                                </button>
-                            </li>) : null}
-
                             {deviceSettings.azanCallsEnabled === 'Y' ? (<li className='nav-item'>
                                 <button className="nav-link fs-4" id="alarms-tab" data-bs-toggle="tab"
                                     data-bs-target="#alarms" type="button" role="tab">
                                     {FontAwesome.Bell}
                                 </button>
                             </li>) : null}
+
+                            <li className='nav-item'>
+                                <button className="nav-link fs-4" id="calendar-tab" data-bs-toggle="tab"
+                                    data-bs-target="#calendar" type="button" role="tab">
+                                    {FontAwesome.Calendar}
+                                </button>
+                            </li>
+
+                            {navigator.onLine ? (<li className='nav-item'>
+                                <button className="nav-link fs-4" id="salawat-tab" data-bs-toggle="tab"
+                                    data-bs-target="#salawat" type="button" role="tab">
+                                    <img src={salawatIcon} alt="Salawat" style={{ height: '0.95em', width: 'auto', verticalAlign: '-0.1em' }} />
+                                </button>
+                            </li>) : null}
+
+                            {navigator.onLine ? (<li className='nav-item'>
+                                <button className="nav-link fs-4" id="quran-tab" data-bs-toggle="tab"
+                                    data-bs-target="#quran" type="button" role="tab">
+                                    {FontAwesome.Book}
+                                </button>
+                            </li>) : null}
+
 
                             <li className='nav-item'>
                                 <button className="nav-link fs-4" id="about-tab" data-bs-toggle="tab"
@@ -86,9 +109,19 @@ export default function Menu() {
                             </div>
                         </div>
                     </div>
-                    <div className="tab-pane fade" id="recitations">
+                    <div className="tab-pane fade" id="calendar">
                         <div className='px-3 text-light'>
-                            <Recitations />
+                            <Calendar />
+                        </div>
+                    </div>
+                    <div className="tab-pane fade" id="salawat">
+                        <div className='px-3 text-light'>
+                            <Salawat />
+                        </div>
+                    </div>
+                    <div className="tab-pane fade" id="quran">
+                        <div className='px-3 text-light'>
+                            <Quran />
                         </div>
                     </div>
                     <div className="tab-pane fade" id="about">

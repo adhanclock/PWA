@@ -178,6 +178,9 @@ body::after {
 
 .offcanvas-body {
   padding-top: 0;
+  /* tighter side margins on every menu tab (Bootstrap's default is 1rem) */
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 #topMenu .nav-link {
@@ -250,6 +253,12 @@ body::after {
   min-width: 120px;
 }
 
+/* narrow phones: let the three buttons share the width instead of overflowing */
+@media (max-width: 480px) {
+  .audioPlayerFixed { right: 0; }
+  .audioPlayerFixed > div:first-child > .audioPlayerBtn { flex: 1 1 0; min-width: 0; padding: 12px 8px; }
+}
+
 #loadingDiv {
   position: fixed;
   top: 0;
@@ -320,4 +329,23 @@ body::after {
 
 *::-webkit-scrollbar-thumb:hover {
   background-color: #666;
+}
+
+/* six menu icons: tighter padding so they stay on one row on a phone */
+#topMenu .nav-link {
+  padding-left: 0.65rem;
+  padding-right: 0.65rem;
+}
+
+/* the Arabic praise line at the top of the Info tab: a quiet gold-edged panel */
+.about-dua {
+  padding: 10px 14px;
+  text-align: center;
+  font-family: 'Amiri', 'UthmanicHafs', 'Geeza Pro', serif;
+  font-size: 1.3rem;
+  line-height: 1.9;
+  color: #e7cf86;
+  background: rgba(231, 207, 134, 0.06);
+  border: 1px solid rgba(231, 207, 134, 0.3);
+  border-radius: 12px;
 }

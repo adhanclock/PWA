@@ -17,6 +17,7 @@ export default function AppContextProvider() {
     const [showLoading, setShowLoading] = useState(false);
     const [isAudioPlaying, setIsAudioPlaying] = useState(false);
     const [isSilkBrowser, setIsSilkBrowser] = useState(false);
+    const [previewVakit, setPreviewVakit] = useState(null);   /* which prayer's adhan is being previewed from Settings */
 
     const [output, setOutput] = useState(() => {
 
@@ -124,17 +125,19 @@ export default function AppContextProvider() {
         }
     };
 
-    const previewAudio = (id) => {
-        let AU = new AAA(id, output.time, false);
-        localStorage.setItem("AAA", JSON.stringify({ ...AU }));
-    }
-
-    const reciteQuranAudio = (id) => {
-        setTimeout(() => {
-            localStorage.setItem("QuranAudio", JSON.stringify({ id: id }));
-            setOutput(SmartAzanClock.run('Quran Recitation'))
-        }, 3 * 1000)
-        setShowMenu(false);
+    /* the preview button toggles: pressing it again while its adhan plays stops it */
+    const previewAudio = (id, vakit) => {
+        const start = () => {
+            setPreviewVakit(vakit);
+            let AU = new AAA(id, output.time, false);
+            localStorage.setItem("AAA", JSON.stringify({ ...AU }));
+        };
+        if (isAudioPlaying || previewVakit) {   /* previewVakit stays set while the preview is paused */
+            window.dispatchEvent(new Event('stopAdhanAudio'));
+            if (vakit !== previewVakit) setTimeout(start, 100);   /* switching to another prayer's preview */
+            return;
+        }
+        start();
     }
 
     const refreshClock = () => {
@@ -142,7 +145,7 @@ export default function AppContextProvider() {
     }
 
     return (
-        <AppContext.Provider value={{ showMenu, setShowMenu, showMsg, showPersistentToast, isAudioPlaying, setIsAudioPlaying, ...output, updateSettings, updateOffset, previewAudio, reciteQuranAudio, refreshClock, dol }}>
+        <AppContext.Provider value={{ showMenu, setShowMenu, showMsg, showPersistentToast, isAudioPlaying, setIsAudioPlaying, previewVakit, setPreviewVakit, ...output, updateSettings, updateOffset, previewAudio, refreshClock, dol }}>
             {output ? <Clock /> : null}
             {showLoading ? <Loading /> : null}
             {output ? <Menu /> : null}

@@ -3,12 +3,16 @@ import { FontAwesome } from '../data/FontAwesome';
 import lenovoM8Image from '../images/lenovo-m8-tab.jpg'
 import lenovoM10Image from '../images/lenovo-m10-tab.jpg'
 import zakatTrackerLogo from '../images/zakattracker-logo.svg'
+import prayerTimesExtensionLogo from '../images/prayer-times-extension-logo.png'
 
 export default function About() {
 
     return (
         <div>
 
+            <div className='rtl about-dua mb-3' lang='ar'>
+                الحمد لله رب العالمين، والصلاة والسلام على رسولنا محمد وعلى آله وصحبه أجمعين
+            </div>
             As Salamu Alaykum
             <p></p>
             Use AdhanClock.com to turn any Android, Amazon Echo or Raspberry Pi device into an actual adhan clock.
@@ -46,9 +50,6 @@ export default function About() {
                 Say, "Alexa, open Silk browser", navigate to adhanclock.com and click on the button to keep it always ON.
             </div>
 
-            <div className='rtl fs-5 text-center mt-4 bg-success rounded p-2'>
-                الحمد لله والشكر لله، أزكى صلاتي وسلامي على رسول الله وآله وصحبه أجمعين
-            </div>
             <p></p>
             {
                 navigator.onLine ? (
@@ -89,6 +90,15 @@ export default function About() {
                 <div>
                     <div className='fw-bold text-dark'>ZakatTracker.com</div>
                     <div className='text-muted small'>Calculate and Track Your Zakat Easily</div>
+                </div>
+            </a>
+
+            <a className='d-flex align-items-center gap-3 text-decoration-none rounded p-2 mt-2'
+                href="https://chrome.google.com/webstore/detail/prayer-times-chrome-exten/fbkmgnkliklgbmanjkmiihkdioepnkce" target="_blank" rel="noreferrer" style={{ backgroundColor: 'white' }}>
+                <img src={prayerTimesExtensionLogo} alt="Prayer Times Chrome Extension" width="44" height="44" className="rounded" />
+                <div>
+                    <div className='fw-bold text-dark'>Prayer Times Chrome Extension</div>
+                    <div className='text-muted small'>Prayer times, Qur'an & Salawat in Chrome</div>
                 </div>
             </a>
 

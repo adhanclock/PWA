@@ -129,7 +129,7 @@ export const SmartAzanClock = {
             )
         ) {
             this.output.dim = 1;
-            this.output.clockOpacity = 0.25;
+            this.output.clockOpacity = 0.7;   /* dim mode: was 0.25, too faint to see on some screens */
             this.output.background = '';
         }
 

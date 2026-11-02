@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+  <!-- 8-point star (two overlapping squares), tiled as a faint gold watermark -->
+  <g fill="none" stroke="#c9a94a" stroke-opacity="0.04" stroke-width="1">
+    <rect x="12" y="12" width="32" height="32"/>
+    <rect x="12" y="12" width="32" height="32" transform="rotate(45 28 28)"/>
+  </g>
+</svg>

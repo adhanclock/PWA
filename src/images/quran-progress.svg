@@ -1,0 +1,585 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 160" width="1000" role="img"
+     aria-label="Qur'an reading progress across all 114 surahs">
+  <style>
+    .surah rect { stroke: #fff; stroke-width: 1; transition: fill .3s ease; }
+    .surah.unread rect { fill: #cbd5e1; }
+    .surah.read   rect { fill: #22c55e; }
+    .surah text {
+      fill: #475569;
+      font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 8px;
+      text-anchor: start;
+      dominant-baseline: central;
+    }
+  </style>
+  <g id="surah-001" class="surah unread" data-surah="1" data-name="Al-Faatiha" data-minutes="0.7">
+    <title>1. Al-Faatiha — 0.7 minutes</title>
+    <text x="1.668" y="108" transform="rotate(-90 1.668 108)">1</text>
+    <rect x="0" y="112" width="3.336" height="40"/>
+  </g>
+  <g id="surah-002" class="surah unread" data-surah="2" data-name="Al-Baqara" data-minutes="104.2">
+    <title>2. Al-Baqara — 104.2 minutes</title>
+    <text x="29.808" y="108" transform="rotate(-90 29.808 108)">2</text>
+    <rect x="3.336" y="112" width="52.944" height="40"/>
+  </g>
+  <g id="surah-003" class="surah unread" data-surah="3" data-name="Aal-i-Imraan" data-minutes="60.4">
+    <title>3. Aal-i-Imraan — 60.4 minutes</title>
+    <text x="72.255" y="108" transform="rotate(-90 72.255 108)">3</text>
+    <rect x="56.28" y="112" width="31.95" height="40"/>
+  </g>
+  <g id="surah-004" class="surah unread" data-surah="4" data-name="An-Nisaa" data-minutes="67.0">
+    <title>4. An-Nisaa — 67.0 minutes</title>
+    <text x="105.787" y="108" transform="rotate(-90 105.787 108)">4</text>
+    <rect x="88.23" y="112" width="35.114" height="40"/>
+  </g>
+  <g id="surah-005" class="surah unread" data-surah="5" data-name="Al-Maaida" data-minutes="47.6">
+    <title>5. Al-Maaida — 47.6 minutes</title>
+    <text x="136.252" y="108" transform="rotate(-90 136.252 108)">5</text>
+    <rect x="123.344" y="112" width="25.815" height="40"/>
+  </g>
+  <g id="surah-006" class="surah unread" data-surah="6" data-name="Al-An'aam" data-minutes="51.3">
+    <title>6. Al-An'aam — 51.3 minutes</title>
+    <text x="162.954" y="108" transform="rotate(-90 162.954 108)">6</text>
+    <rect x="149.16" y="112" width="27.589" height="40"/>
+  </g>
+  <g id="surah-007" class="surah unread" data-surah="7" data-name="Al-A'raaf" data-minutes="58.9">
+    <title>7. Al-A'raaf — 58.9 minutes</title>
+    <text x="192.364" y="108" transform="rotate(-90 192.364 108)">7</text>
+    <rect x="176.748" y="112" width="31.231" height="40"/>
+  </g>
+  <g id="surah-008" class="surah unread" data-surah="8" data-name="Al-Anfaal" data-minutes="21.3">
+    <title>8. Al-Anfaal — 21.3 minutes</title>
+    <text x="214.584" y="108" transform="rotate(-90 214.584 108)">8</text>
+    <rect x="207.98" y="112" width="13.209" height="40"/>
+  </g>
+  <g id="surah-009" class="surah unread" data-surah="9" data-name="At-Tawba" data-minutes="44.9">
+    <title>9. At-Tawba — 44.9 minutes</title>
+    <text x="233.45" y="108" transform="rotate(-90 233.45 108)">9</text>
+    <rect x="221.189" y="112" width="24.521" height="40"/>
+  </g>
+  <g id="surah-010" class="surah unread" data-surah="10" data-name="Yunus" data-minutes="32.2">
+    <title>10. Yunus — 32.2 minutes</title>
+    <text x="254.927" y="108" transform="rotate(-90 254.927 108)">10</text>
+    <rect x="245.71" y="112" width="18.434" height="40"/>
+  </g>
+  <g id="surah-011" class="surah unread" data-surah="11" data-name="Hud" data-minutes="33.7">
+    <title>11. Hud — 33.7 minutes</title>
+    <text x="273.72" y="108" transform="rotate(-90 273.72 108)">11</text>
+    <rect x="264.144" y="112" width="19.153" height="40"/>
+  </g>
+  <g id="surah-012" class="surah unread" data-surah="12" data-name="Yusuf" data-minutes="29.7">
+    <title>12. Yusuf — 29.7 minutes</title>
+    <text x="291.915" y="108" transform="rotate(-90 291.915 108)">12</text>
+    <rect x="283.297" y="112" width="17.236" height="40"/>
+  </g>
+  <g id="surah-013" class="surah unread" data-surah="13" data-name="Ar-Ra'd" data-minutes="14.9">
+    <title>13. Ar-Ra'd — 14.9 minutes</title>
+    <text x="305.603" y="108" transform="rotate(-90 305.603 108)">13</text>
+    <rect x="300.532" y="112" width="10.142" height="40"/>
+  </g>
+  <g id="surah-014" class="surah unread" data-surah="14" data-name="Ibrahim" data-minutes="15.5">
+    <title>14. Ibrahim — 15.5 minutes</title>
+    <text x="315.889" y="108" transform="rotate(-90 315.889 108)">14</text>
+    <rect x="310.674" y="112" width="10.429" height="40"/>
+  </g>
+  <g id="surah-015" class="surah unread" data-surah="15" data-name="Al-Hijr" data-minutes="12.5">
+    <title>15. Al-Hijr — 12.5 minutes</title>
+    <text x="325.599" y="108" transform="rotate(-90 325.599 108)">15</text>
+    <rect x="321.104" y="112" width="8.991" height="40"/>
+  </g>
+  <g id="surah-016" class="surah unread" data-surah="16" data-name="An-Nahl" data-minutes="31.5">
+    <title>16. An-Nahl — 31.5 minutes</title>
+    <text x="339.144" y="108" transform="rotate(-90 339.144 108)">16</text>
+    <rect x="330.095" y="112" width="18.098" height="40"/>
+  </g>
+  <g id="surah-017" class="surah unread" data-surah="17" data-name="Al-Israa" data-minutes="27.2">
+    <title>17. Al-Israa — 27.2 minutes</title>
+    <text x="356.212" y="108" transform="rotate(-90 356.212 108)">17</text>
+    <rect x="348.193" y="112" width="16.037" height="40"/>
+  </g>
+  <g id="surah-018" class="surah unread" data-surah="18" data-name="Al-Kahf" data-minutes="26.5">
+    <title>18. Al-Kahf — 26.5 minutes</title>
+    <text x="372.082" y="108" transform="rotate(-90 372.082 108)">18</text>
+    <rect x="364.231" y="112" width="15.702" height="40"/>
+  </g>
+  <g id="surah-019" class="surah unread" data-surah="19" data-name="Maryam" data-minutes="16.6">
+    <title>19. Maryam — 16.6 minutes</title>
+    <text x="385.411" y="108" transform="rotate(-90 385.411 108)">19</text>
+    <rect x="379.932" y="112" width="10.957" height="40"/>
+  </g>
+  <g id="surah-020" class="surah unread" data-surah="20" data-name="Taa-Haa" data-minutes="20.9">
+    <title>20. Taa-Haa — 20.9 minutes</title>
+    <text x="397.398" y="108" transform="rotate(-90 397.398 108)">20</text>
+    <rect x="390.889" y="112" width="13.018" height="40"/>
+  </g>
+  <g id="surah-021" class="surah unread" data-surah="21" data-name="Al-Anbiyaa" data-minutes="22.1">
+    <title>21. Al-Anbiyaa — 22.1 minutes</title>
+    <text x="410.703" y="108" transform="rotate(-90 410.703 108)">21</text>
+    <rect x="403.907" y="112" width="13.593" height="40"/>
+  </g>
+  <g id="surah-022" class="surah unread" data-surah="22" data-name="Al-Hajj" data-minutes="22.4">
+    <title>22. Al-Hajj — 22.4 minutes</title>
+    <text x="424.368" y="108" transform="rotate(-90 424.368 108)">22</text>
+    <rect x="417.499" y="112" width="13.737" height="40"/>
+  </g>
+  <g id="surah-023" class="surah unread" data-surah="23" data-name="Al-Muminoon" data-minutes="19.3">
+    <title>23. Al-Muminoon — 19.3 minutes</title>
+    <text x="437.361" y="108" transform="rotate(-90 437.361 108)">23</text>
+    <rect x="431.236" y="112" width="12.251" height="40"/>
+  </g>
+  <g id="surah-024" class="surah unread" data-surah="24" data-name="An-Noor" data-minutes="24.2">
+    <title>24. An-Noor — 24.2 minutes</title>
+    <text x="450.786" y="108" transform="rotate(-90 450.786 108)">24</text>
+    <rect x="443.487" y="112" width="14.599" height="40"/>
+  </g>
+  <g id="surah-025" class="surah unread" data-surah="25" data-name="Al-Furqaan" data-minutes="15.4">
+    <title>25. Al-Furqaan — 15.4 minutes</title>
+    <text x="463.277" y="108" transform="rotate(-90 463.277 108)">25</text>
+    <rect x="458.086" y="112" width="10.381" height="40"/>
+  </g>
+  <g id="surah-026" class="surah unread" data-surah="26" data-name="Ash-Shu'araa" data-minutes="21.8">
+    <title>26. Ash-Shu'araa — 21.8 minutes</title>
+    <text x="475.192" y="108" transform="rotate(-90 475.192 108)">26</text>
+    <rect x="468.468" y="112" width="13.449" height="40"/>
+  </g>
+  <g id="surah-027" class="surah unread" data-surah="27" data-name="An-Naml" data-minutes="20.8">
+    <title>27. An-Naml — 20.8 minutes</title>
+    <text x="488.401" y="108" transform="rotate(-90 488.401 108)">27</text>
+    <rect x="481.917" y="112" width="12.97" height="40"/>
+  </g>
+  <g id="surah-028" class="surah unread" data-surah="28" data-name="Al-Qasas" data-minutes="23.4">
+    <title>28. Al-Qasas — 23.4 minutes</title>
+    <text x="501.994" y="108" transform="rotate(-90 501.994 108)">28</text>
+    <rect x="494.886" y="112" width="14.216" height="40"/>
+  </g>
+  <g id="surah-029" class="surah unread" data-surah="29" data-name="Al-Ankaboot" data-minutes="17.5">
+    <title>29. Al-Ankaboot — 17.5 minutes</title>
+    <text x="514.796" y="108" transform="rotate(-90 514.796 108)">29</text>
+    <rect x="509.102" y="112" width="11.388" height="40"/>
+  </g>
+  <g id="surah-030" class="surah unread" data-surah="30" data-name="Ar-Room" data-minutes="13.4">
+    <title>30. Ar-Room — 13.4 minutes</title>
+    <text x="525.201" y="108" transform="rotate(-90 525.201 108)">30</text>
+    <rect x="520.49" y="112" width="9.423" height="40"/>
+  </g>
+  <g id="surah-031" class="surah unread" data-surah="31" data-name="Luqman" data-minutes="9.0">
+    <title>31. Luqman — 9.0 minutes</title>
+    <text x="533.57" y="108" transform="rotate(-90 533.57 108)">31</text>
+    <rect x="529.913" y="112" width="7.314" height="40"/>
+  </g>
+  <g id="surah-032" class="surah unread" data-surah="32" data-name="As-Sajda" data-minutes="6.5">
+    <title>32. As-Sajda — 6.5 minutes</title>
+    <text x="540.284" y="108" transform="rotate(-90 540.284 108)">32</text>
+    <rect x="537.227" y="112" width="6.116" height="40"/>
+  </g>
+  <g id="surah-033" class="surah unread" data-surah="33" data-name="Al-Ahzaab" data-minutes="24.7">
+    <title>33. Al-Ahzaab — 24.7 minutes</title>
+    <text x="550.762" y="108" transform="rotate(-90 550.762 108)">33</text>
+    <rect x="543.342" y="112" width="14.839" height="40"/>
+  </g>
+  <g id="surah-034" class="surah unread" data-surah="34" data-name="Saba" data-minutes="15.7">
+    <title>34. Saba — 15.7 minutes</title>
+    <text x="563.444" y="108" transform="rotate(-90 563.444 108)">34</text>
+    <rect x="558.181" y="112" width="10.525" height="40"/>
+  </g>
+  <g id="surah-035" class="surah unread" data-surah="35" data-name="Faatir" data-minutes="13.0">
+    <title>35. Faatir — 13.0 minutes</title>
+    <text x="573.322" y="108" transform="rotate(-90 573.322 108)">35</text>
+    <rect x="568.706" y="112" width="9.231" height="40"/>
+  </g>
+  <g id="surah-036" class="surah unread" data-surah="36" data-name="Yaseen" data-minutes="12.9">
+    <title>36. Yaseen — 12.9 minutes</title>
+    <text x="582.529" y="108" transform="rotate(-90 582.529 108)">36</text>
+    <rect x="577.938" y="112" width="9.183" height="40"/>
+  </g>
+  <g id="surah-037" class="surah unread" data-surah="37" data-name="As-Saaffaat" data-minutes="16.0">
+    <title>37. As-Saaffaat — 16.0 minutes</title>
+    <text x="592.455" y="108" transform="rotate(-90 592.455 108)">37</text>
+    <rect x="587.121" y="112" width="10.669" height="40"/>
+  </g>
+  <g id="surah-038" class="surah unread" data-surah="38" data-name="Saad" data-minutes="13.1">
+    <title>38. Saad — 13.1 minutes</title>
+    <text x="602.429" y="108" transform="rotate(-90 602.429 108)">38</text>
+    <rect x="597.79" y="112" width="9.279" height="40"/>
+  </g>
+  <g id="surah-039" class="surah unread" data-surah="39" data-name="Az-Zumar" data-minutes="21.2">
+    <title>39. Az-Zumar — 21.2 minutes</title>
+    <text x="613.649" y="108" transform="rotate(-90 613.649 108)">39</text>
+    <rect x="607.069" y="112" width="13.161" height="40"/>
+  </g>
+  <g id="surah-040" class="surah unread" data-surah="40" data-name="Ghafir" data-minutes="21.2">
+    <title>40. Ghafir — 21.2 minutes</title>
+    <text x="626.811" y="108" transform="rotate(-90 626.811 108)">40</text>
+    <rect x="620.23" y="112" width="13.161" height="40"/>
+  </g>
+  <g id="surah-041" class="surah unread" data-surah="41" data-name="Fussilat" data-minutes="14.1">
+    <title>41. Fussilat — 14.1 minutes</title>
+    <text x="638.271" y="108" transform="rotate(-90 638.271 108)">41</text>
+    <rect x="633.391" y="112" width="9.758" height="40"/>
+  </g>
+  <g id="surah-042" class="surah unread" data-surah="42" data-name="Ash-Shura" data-minutes="15.2">
+    <title>42. Ash-Shura — 15.2 minutes</title>
+    <text x="648.293" y="108" transform="rotate(-90 648.293 108)">42</text>
+    <rect x="643.15" y="112" width="10.286" height="40"/>
+  </g>
+  <g id="surah-043" class="surah unread" data-surah="43" data-name="Az-Zukhruf" data-minutes="16.4">
+    <title>43. Az-Zukhruf — 16.4 minutes</title>
+    <text x="658.866" y="108" transform="rotate(-90 658.866 108)">43</text>
+    <rect x="653.435" y="112" width="10.861" height="40"/>
+  </g>
+  <g id="surah-044" class="surah unread" data-surah="44" data-name="Ad-Dukhaan" data-minutes="6.7">
+    <title>44. Ad-Dukhaan — 6.7 minutes</title>
+    <text x="667.402" y="108" transform="rotate(-90 667.402 108)">44</text>
+    <rect x="664.296" y="112" width="6.211" height="40"/>
+  </g>
+  <g id="surah-045" class="surah unread" data-surah="45" data-name="Al-Jaathiya" data-minutes="8.7">
+    <title>45. Al-Jaathiya — 8.7 minutes</title>
+    <text x="674.092" y="108" transform="rotate(-90 674.092 108)">45</text>
+    <rect x="670.507" y="112" width="7.17" height="40"/>
+  </g>
+  <g id="surah-046" class="surah unread" data-surah="46" data-name="Al-Ahqaf" data-minutes="11.2">
+    <title>46. Al-Ahqaf — 11.2 minutes</title>
+    <text x="681.862" y="108" transform="rotate(-90 681.862 108)">46</text>
+    <rect x="677.677" y="112" width="8.368" height="40"/>
+  </g>
+  <g id="surah-047" class="surah unread" data-surah="47" data-name="Muhammad" data-minutes="9.6">
+    <title>47. Muhammad — 9.6 minutes</title>
+    <text x="689.846" y="108" transform="rotate(-90 689.846 108)">47</text>
+    <rect x="686.046" y="112" width="7.601" height="40"/>
+  </g>
+  <g id="surah-048" class="surah unread" data-surah="48" data-name="Al-Fath" data-minutes="10.0">
+    <title>48. Al-Fath — 10.0 minutes</title>
+    <text x="697.544" y="108" transform="rotate(-90 697.544 108)">48</text>
+    <rect x="693.647" y="112" width="7.793" height="40"/>
+  </g>
+  <g id="surah-049" class="surah unread" data-surah="49" data-name="Al-Hujuraat" data-minutes="6.3">
+    <title>49. Al-Hujuraat — 6.3 minutes</title>
+    <text x="704.45" y="108" transform="rotate(-90 704.45 108)">49</text>
+    <rect x="701.44" y="112" width="6.02" height="40"/>
+  </g>
+  <g id="surah-050" class="surah unread" data-surah="50" data-name="Qaaf" data-minutes="7.3">
+    <title>50. Qaaf — 7.3 minutes</title>
+    <text x="710.709" y="108" transform="rotate(-90 710.709 108)">50</text>
+    <rect x="707.46" y="112" width="6.499" height="40"/>
+  </g>
+  <g id="surah-051" class="surah unread" data-surah="51" data-name="Adh-Dhaariyat" data-minutes="6.8">
+    <title>51. Adh-Dhaariyat — 6.8 minutes</title>
+    <text x="717.089" y="108" transform="rotate(-90 717.089 108)">51</text>
+    <rect x="713.959" y="112" width="6.259" height="40"/>
+  </g>
+  <g id="surah-052" class="surah unread" data-surah="52" data-name="At-Tur" data-minutes="5.8">
+    <title>52. At-Tur — 5.8 minutes</title>
+    <text x="723.108" y="108" transform="rotate(-90 723.108 108)">52</text>
+    <rect x="720.218" y="112" width="5.78" height="40"/>
+  </g>
+  <g id="surah-053" class="surah unread" data-surah="53" data-name="An-Najm" data-minutes="6.9">
+    <title>53. An-Najm — 6.9 minutes</title>
+    <text x="729.152" y="108" transform="rotate(-90 729.152 108)">53</text>
+    <rect x="725.998" y="112" width="6.307" height="40"/>
+  </g>
+  <g id="surah-054" class="surah unread" data-surah="54" data-name="Al-Qamar" data-minutes="6.2">
+    <title>54. Al-Qamar — 6.2 minutes</title>
+    <text x="735.291" y="108" transform="rotate(-90 735.291 108)">54</text>
+    <rect x="732.306" y="112" width="5.972" height="40"/>
+  </g>
+  <g id="surah-055" class="surah unread" data-surah="55" data-name="Ar-Rahmaan" data-minutes="8.2">
+    <title>55. Ar-Rahmaan — 8.2 minutes</title>
+    <text x="741.742" y="108" transform="rotate(-90 741.742 108)">55</text>
+    <rect x="738.277" y="112" width="6.93" height="40"/>
+  </g>
+  <g id="surah-056" class="surah unread" data-surah="56" data-name="Al-Waaqia" data-minutes="7.3">
+    <title>56. Al-Waaqia — 7.3 minutes</title>
+    <text x="748.457" y="108" transform="rotate(-90 748.457 108)">56</text>
+    <rect x="745.208" y="112" width="6.499" height="40"/>
+  </g>
+  <g id="surah-057" class="surah unread" data-surah="57" data-name="Al-Hadid" data-minutes="10.0">
+    <title>57. Al-Hadid — 10.0 minutes</title>
+    <text x="755.603" y="108" transform="rotate(-90 755.603 108)">57</text>
+    <rect x="751.707" y="112" width="7.793" height="40"/>
+  </g>
+  <g id="surah-058" class="surah unread" data-surah="58" data-name="Al-Mujaadila" data-minutes="9.3">
+    <title>58. Al-Mujaadila — 9.3 minutes</title>
+    <text x="763.229" y="108" transform="rotate(-90 763.229 108)">58</text>
+    <rect x="759.5" y="112" width="7.458" height="40"/>
+  </g>
+  <g id="surah-059" class="surah unread" data-surah="59" data-name="Al-Hashr" data-minutes="8.1">
+    <title>59. Al-Hashr — 8.1 minutes</title>
+    <text x="770.399" y="108" transform="rotate(-90 770.399 108)">59</text>
+    <rect x="766.957" y="112" width="6.882" height="40"/>
+  </g>
+  <g id="surah-060" class="surah unread" data-surah="60" data-name="Al-Mumtahana" data-minutes="6.5">
+    <title>60. Al-Mumtahana — 6.5 minutes</title>
+    <text x="776.898" y="108" transform="rotate(-90 776.898 108)">60</text>
+    <rect x="773.84" y="112" width="6.116" height="40"/>
+  </g>
+  <g id="surah-061" class="surah unread" data-surah="61" data-name="As-Saff" data-minutes="4.0">
+    <title>61. As-Saff — 4.0 minutes</title>
+    <text x="782.414" y="108" transform="rotate(-90 782.414 108)">61</text>
+    <rect x="779.955" y="112" width="4.917" height="40"/>
+  </g>
+  <g id="surah-062" class="surah unread" data-surah="62" data-name="Al-Jumu'a" data-minutes="3.1">
+    <title>62. Al-Jumu'a — 3.1 minutes</title>
+    <text x="787.115" y="108" transform="rotate(-90 787.115 108)">62</text>
+    <rect x="784.873" y="112" width="4.486" height="40"/>
+  </g>
+  <g id="surah-063" class="surah unread" data-surah="63" data-name="Al-Munaafiqoon" data-minutes="3.3">
+    <title>63. Al-Munaafiqoon — 3.3 minutes</title>
+    <text x="791.649" y="108" transform="rotate(-90 791.649 108)">63</text>
+    <rect x="789.358" y="112" width="4.582" height="40"/>
+  </g>
+  <g id="surah-064" class="surah unread" data-surah="64" data-name="At-Taghaabun" data-minutes="4.3">
+    <title>64. At-Taghaabun — 4.3 minutes</title>
+    <text x="796.471" y="108" transform="rotate(-90 796.471 108)">64</text>
+    <rect x="793.94" y="112" width="5.061" height="40"/>
+  </g>
+  <g id="surah-065" class="surah unread" data-surah="65" data-name="At-Talaaq" data-minutes="5.1">
+    <title>65. At-Talaaq — 5.1 minutes</title>
+    <text x="801.723" y="108" transform="rotate(-90 801.723 108)">65</text>
+    <rect x="799.001" y="112" width="5.444" height="40"/>
+  </g>
+  <g id="surah-066" class="surah unread" data-surah="66" data-name="At-Tahrim" data-minutes="4.8">
+    <title>66. At-Tahrim — 4.8 minutes</title>
+    <text x="807.096" y="108" transform="rotate(-90 807.096 108)">66</text>
+    <rect x="804.446" y="112" width="5.301" height="40"/>
+  </g>
+  <g id="surah-067" class="surah unread" data-surah="67" data-name="Al-Mulk" data-minutes="6.2">
+    <title>67. Al-Mulk — 6.2 minutes</title>
+    <text x="812.732" y="108" transform="rotate(-90 812.732 108)">67</text>
+    <rect x="809.746" y="112" width="5.972" height="40"/>
+  </g>
+  <g id="surah-068" class="surah unread" data-surah="68" data-name="Al-Qalam" data-minutes="5.7">
+    <title>68. Al-Qalam — 5.7 minutes</title>
+    <text x="818.584" y="108" transform="rotate(-90 818.584 108)">68</text>
+    <rect x="815.718" y="112" width="5.732" height="40"/>
+  </g>
+  <g id="surah-069" class="surah unread" data-surah="69" data-name="Al-Haaqqa" data-minutes="5.5">
+    <title>69. Al-Haaqqa — 5.5 minutes</title>
+    <text x="824.268" y="108" transform="rotate(-90 824.268 108)">69</text>
+    <rect x="821.45" y="112" width="5.636" height="40"/>
+  </g>
+  <g id="surah-070" class="surah unread" data-surah="70" data-name="Al-Ma'aarij" data-minutes="4.7">
+    <title>70. Al-Ma'aarij — 4.7 minutes</title>
+    <text x="829.713" y="108" transform="rotate(-90 829.713 108)">70</text>
+    <rect x="827.086" y="112" width="5.253" height="40"/>
+  </g>
+  <g id="surah-071" class="surah unread" data-surah="71" data-name="Nooh" data-minutes="4.3">
+    <title>71. Nooh — 4.3 minutes</title>
+    <text x="834.87" y="108" transform="rotate(-90 834.87 108)">71</text>
+    <rect x="832.339" y="112" width="5.061" height="40"/>
+  </g>
+  <g id="surah-072" class="surah unread" data-surah="72" data-name="Al-Jinn" data-minutes="4.8">
+    <title>72. Al-Jinn — 4.8 minutes</title>
+    <text x="840.051" y="108" transform="rotate(-90 840.051 108)">72</text>
+    <rect x="837.4" y="112" width="5.301" height="40"/>
+  </g>
+  <g id="surah-073" class="surah unread" data-surah="73" data-name="Al-Muzzammil" data-minutes="3.7">
+    <title>73. Al-Muzzammil — 3.7 minutes</title>
+    <text x="845.088" y="108" transform="rotate(-90 845.088 108)">73</text>
+    <rect x="842.701" y="112" width="4.773" height="40"/>
+  </g>
+  <g id="surah-074" class="surah unread" data-surah="74" data-name="Al-Muddaththir" data-minutes="4.6">
+    <title>74. Al-Muddaththir — 4.6 minutes</title>
+    <text x="850.077" y="108" transform="rotate(-90 850.077 108)">74</text>
+    <rect x="847.474" y="112" width="5.205" height="40"/>
+  </g>
+  <g id="surah-075" class="surah unread" data-surah="75" data-name="Al-Qiyaama" data-minutes="2.8">
+    <title>75. Al-Qiyaama — 2.8 minutes</title>
+    <text x="854.85" y="108" transform="rotate(-90 854.85 108)">75</text>
+    <rect x="852.679" y="112" width="4.342" height="40"/>
+  </g>
+  <g id="surah-076" class="surah unread" data-surah="76" data-name="Al-Insaan" data-minutes="4.5">
+    <title>76. Al-Insaan — 4.5 minutes</title>
+    <text x="859.6" y="108" transform="rotate(-90 859.6 108)">76</text>
+    <rect x="857.021" y="112" width="5.157" height="40"/>
+  </g>
+  <g id="surah-077" class="surah unread" data-surah="77" data-name="Al-Mursalaat" data-minutes="3.7">
+    <title>77. Al-Mursalaat — 3.7 minutes</title>
+    <text x="864.565" y="108" transform="rotate(-90 864.565 108)">77</text>
+    <rect x="862.178" y="112" width="4.773" height="40"/>
+  </g>
+  <g id="surah-078" class="surah unread" data-surah="78" data-name="An-Naba" data-minutes="3.8">
+    <title>78. An-Naba — 3.8 minutes</title>
+    <text x="869.362" y="108" transform="rotate(-90 869.362 108)">78</text>
+    <rect x="866.952" y="112" width="4.821" height="40"/>
+  </g>
+  <g id="surah-079" class="surah unread" data-surah="79" data-name="An-Naazi'aat" data-minutes="3.3">
+    <title>79. An-Naazi'aat — 3.3 minutes</title>
+    <text x="874.064" y="108" transform="rotate(-90 874.064 108)">79</text>
+    <rect x="871.773" y="112" width="4.582" height="40"/>
+  </g>
+  <g id="surah-080" class="surah unread" data-surah="80" data-name="Abasa" data-minutes="2.8">
+    <title>80. Abasa — 2.8 minutes</title>
+    <text x="878.526" y="108" transform="rotate(-90 878.526 108)">80</text>
+    <rect x="876.355" y="112" width="4.342" height="40"/>
+  </g>
+  <g id="surah-081" class="surah unread" data-surah="81" data-name="At-Takwir" data-minutes="1.9">
+    <title>81. At-Takwir — 1.9 minutes</title>
+    <text x="882.652" y="108" transform="rotate(-90 882.652 108)">81</text>
+    <rect x="880.697" y="112" width="3.911" height="40"/>
+  </g>
+  <g id="surah-082" class="surah unread" data-surah="82" data-name="Al-Infitaar" data-minutes="1.5">
+    <title>82. Al-Infitaar — 1.5 minutes</title>
+    <text x="886.467" y="108" transform="rotate(-90 886.467 108)">82</text>
+    <rect x="884.608" y="112" width="3.719" height="40"/>
+  </g>
+  <g id="surah-083" class="surah unread" data-surah="83" data-name="Al-Mutaffifin" data-minutes="3.3">
+    <title>83. Al-Mutaffifin — 3.3 minutes</title>
+    <text x="890.617" y="108" transform="rotate(-90 890.617 108)">83</text>
+    <rect x="888.326" y="112" width="4.582" height="40"/>
+  </g>
+  <g id="surah-084" class="surah unread" data-surah="84" data-name="Al-Inshiqaaq" data-minutes="1.9">
+    <title>84. Al-Inshiqaaq — 1.9 minutes</title>
+    <text x="894.864" y="108" transform="rotate(-90 894.864 108)">84</text>
+    <rect x="892.908" y="112" width="3.911" height="40"/>
+  </g>
+  <g id="surah-085" class="surah unread" data-surah="85" data-name="Al-Burooj" data-minutes="2.1">
+    <title>85. Al-Burooj — 2.1 minutes</title>
+    <text x="898.822" y="108" transform="rotate(-90 898.822 108)">85</text>
+    <rect x="896.819" y="112" width="4.007" height="40"/>
+  </g>
+  <g id="surah-086" class="surah unread" data-surah="86" data-name="At-Taariq" data-minutes="1.2">
+    <title>86. At-Taariq — 1.2 minutes</title>
+    <text x="902.613" y="108" transform="rotate(-90 902.613 108)">86</text>
+    <rect x="900.825" y="112" width="3.575" height="40"/>
+  </g>
+  <g id="surah-087" class="surah unread" data-surah="87" data-name="Al-A'laa" data-minutes="1.3">
+    <title>87. Al-A'laa — 1.3 minutes</title>
+    <text x="906.212" y="108" transform="rotate(-90 906.212 108)">87</text>
+    <rect x="904.401" y="112" width="3.623" height="40"/>
+  </g>
+  <g id="surah-088" class="surah unread" data-surah="88" data-name="Al-Ghaashiya" data-minutes="1.8">
+    <title>88. Al-Ghaashiya — 1.8 minutes</title>
+    <text x="909.955" y="108" transform="rotate(-90 909.955 108)">88</text>
+    <rect x="908.024" y="112" width="3.863" height="40"/>
+  </g>
+  <g id="surah-089" class="surah unread" data-surah="89" data-name="Al-Fajr" data-minutes="2.6">
+    <title>89. Al-Fajr — 2.6 minutes</title>
+    <text x="914.01" y="108" transform="rotate(-90 914.01 108)">89</text>
+    <rect x="911.887" y="112" width="4.246" height="40"/>
+  </g>
+  <g id="surah-090" class="surah unread" data-surah="90" data-name="Al-Balad" data-minutes="1.4">
+    <title>90. Al-Balad — 1.4 minutes</title>
+    <text x="917.968" y="108" transform="rotate(-90 917.968 108)">90</text>
+    <rect x="916.133" y="112" width="3.671" height="40"/>
+  </g>
+  <g id="surah-091" class="surah unread" data-surah="91" data-name="Ash-Shams" data-minutes="1.1">
+    <title>91. Ash-Shams — 1.1 minutes</title>
+    <text x="921.567" y="108" transform="rotate(-90 921.567 108)">91</text>
+    <rect x="919.804" y="112" width="3.527" height="40"/>
+  </g>
+  <g id="surah-092" class="surah unread" data-surah="92" data-name="Al-Lail" data-minutes="1.4">
+    <title>92. Al-Lail — 1.4 minutes</title>
+    <text x="925.167" y="108" transform="rotate(-90 925.167 108)">92</text>
+    <rect x="923.331" y="112" width="3.671" height="40"/>
+  </g>
+  <g id="surah-093" class="surah unread" data-surah="93" data-name="Ad-Dhuhaa" data-minutes="0.8">
+    <title>93. Ad-Dhuhaa — 0.8 minutes</title>
+    <text x="928.694" y="108" transform="rotate(-90 928.694 108)">93</text>
+    <rect x="927.002" y="112" width="3.383" height="40"/>
+  </g>
+  <g id="surah-094" class="surah unread" data-surah="94" data-name="Ash-Sharh" data-minutes="0.5">
+    <title>94. Ash-Sharh — 0.5 minutes</title>
+    <text x="932.005" y="108" transform="rotate(-90 932.005 108)">94</text>
+    <rect x="930.385" y="112" width="3.24" height="40"/>
+  </g>
+  <g id="surah-095" class="surah unread" data-surah="95" data-name="At-Tin" data-minutes="0.7">
+    <title>95. At-Tin — 0.7 minutes</title>
+    <text x="935.293" y="108" transform="rotate(-90 935.293 108)">95</text>
+    <rect x="933.625" y="112" width="3.336" height="40"/>
+  </g>
+  <g id="surah-096" class="surah unread" data-surah="96" data-name="Al-Alaq" data-minutes="1.3">
+    <title>96. Al-Alaq — 1.3 minutes</title>
+    <text x="938.772" y="108" transform="rotate(-90 938.772 108)">96</text>
+    <rect x="936.961" y="112" width="3.623" height="40"/>
+  </g>
+  <g id="surah-097" class="surah unread" data-surah="97" data-name="Al-Qadr" data-minutes="0.6">
+    <title>97. Al-Qadr — 0.6 minutes</title>
+    <text x="942.228" y="108" transform="rotate(-90 942.228 108)">97</text>
+    <rect x="940.584" y="112" width="3.288" height="40"/>
+  </g>
+  <g id="surah-098" class="surah unread" data-surah="98" data-name="Al-Bayyina" data-minutes="1.7">
+    <title>98. Al-Bayyina — 1.7 minutes</title>
+    <text x="945.779" y="108" transform="rotate(-90 945.779 108)">98</text>
+    <rect x="943.871" y="112" width="3.815" height="40"/>
+  </g>
+  <g id="surah-099" class="surah unread" data-surah="99" data-name="Az-Zalzala" data-minutes="0.8">
+    <title>99. Az-Zalzala — 0.8 minutes</title>
+    <text x="949.378" y="108" transform="rotate(-90 949.378 108)">99</text>
+    <rect x="947.686" y="112" width="3.383" height="40"/>
+  </g>
+  <g id="surah-100" class="surah unread" data-surah="100" data-name="Al-Aadiyaat" data-minutes="0.9">
+    <title>100. Al-Aadiyaat — 0.9 minutes</title>
+    <text x="952.785" y="108" transform="rotate(-90 952.785 108)">100</text>
+    <rect x="951.07" y="112" width="3.431" height="40"/>
+  </g>
+  <g id="surah-101" class="surah unread" data-surah="101" data-name="Al-Qaari'a" data-minutes="0.8">
+    <title>101. Al-Qaari'a — 0.8 minutes</title>
+    <text x="956.193" y="108" transform="rotate(-90 956.193 108)">101</text>
+    <rect x="954.501" y="112" width="3.383" height="40"/>
+  </g>
+  <g id="surah-102" class="surah unread" data-surah="102" data-name="At-Takaathur" data-minutes="0.7">
+    <title>102. At-Takaathur — 0.7 minutes</title>
+    <text x="959.552" y="108" transform="rotate(-90 959.552 108)">102</text>
+    <rect x="957.884" y="112" width="3.336" height="40"/>
+  </g>
+  <g id="surah-103" class="surah unread" data-surah="103" data-name="Al-Asr" data-minutes="0.4">
+    <title>103. Al-Asr — 0.4 minutes</title>
+    <text x="962.816" y="108" transform="rotate(-90 962.816 108)">103</text>
+    <rect x="961.22" y="112" width="3.192" height="40"/>
+  </g>
+  <g id="surah-104" class="surah unread" data-surah="104" data-name="Al-Humaza" data-minutes="0.7">
+    <title>104. Al-Humaza — 0.7 minutes</title>
+    <text x="966.079" y="108" transform="rotate(-90 966.079 108)">104</text>
+    <rect x="964.412" y="112" width="3.336" height="40"/>
+  </g>
+  <g id="surah-105" class="surah unread" data-surah="105" data-name="Al-Fil" data-minutes="0.6">
+    <title>105. Al-Fil — 0.6 minutes</title>
+    <text x="969.391" y="108" transform="rotate(-90 969.391 108)">105</text>
+    <rect x="967.747" y="112" width="3.288" height="40"/>
+  </g>
+  <g id="surah-106" class="surah unread" data-surah="106" data-name="Quraish" data-minutes="0.5">
+    <title>106. Quraish — 0.5 minutes</title>
+    <text x="972.655" y="108" transform="rotate(-90 972.655 108)">106</text>
+    <rect x="971.035" y="112" width="3.24" height="40"/>
+  </g>
+  <g id="surah-107" class="surah unread" data-surah="107" data-name="Al-Maa'un" data-minutes="0.6">
+    <title>107. Al-Maa'un — 0.6 minutes</title>
+    <text x="975.918" y="108" transform="rotate(-90 975.918 108)">107</text>
+    <rect x="974.274" y="112" width="3.288" height="40"/>
+  </g>
+  <g id="surah-108" class="surah unread" data-surah="108" data-name="Al-Kawthar" data-minutes="0.3">
+    <title>108. Al-Kawthar — 0.3 minutes</title>
+    <text x="979.134" y="108" transform="rotate(-90 979.134 108)">108</text>
+    <rect x="977.562" y="112" width="3.144" height="40"/>
+  </g>
+  <g id="surah-109" class="surah unread" data-surah="109" data-name="Al-Kaafiroon" data-minutes="0.6">
+    <title>109. Al-Kaafiroon — 0.6 minutes</title>
+    <text x="982.35" y="108" transform="rotate(-90 982.35 108)">109</text>
+    <rect x="980.706" y="112" width="3.288" height="40"/>
+  </g>
+  <g id="surah-110" class="surah unread" data-surah="110" data-name="An-Nasr" data-minutes="0.4">
+    <title>110. An-Nasr — 0.4 minutes</title>
+    <text x="985.589" y="108" transform="rotate(-90 985.589 108)">110</text>
+    <rect x="983.993" y="112" width="3.192" height="40"/>
+  </g>
+  <g id="surah-111" class="surah unread" data-surah="111" data-name="Al-Masad" data-minutes="0.5">
+    <title>111. Al-Masad — 0.5 minutes</title>
+    <text x="988.805" y="108" transform="rotate(-90 988.805 108)">111</text>
+    <rect x="987.185" y="112" width="3.24" height="40"/>
+  </g>
+  <g id="surah-112" class="surah unread" data-surah="112" data-name="Al-Ikhlaas" data-minutes="0.3">
+    <title>112. Al-Ikhlaas — 0.3 minutes</title>
+    <text x="991.997" y="108" transform="rotate(-90 991.997 108)">112</text>
+    <rect x="990.425" y="112" width="3.144" height="40"/>
+  </g>
+  <g id="surah-113" class="surah unread" data-surah="113" data-name="Al-Falaq" data-minutes="0.4">
+    <title>113. Al-Falaq — 0.4 minutes</title>
+    <text x="995.164" y="108" transform="rotate(-90 995.164 108)">113</text>
+    <rect x="993.569" y="112" width="3.192" height="40"/>
+  </g>
+  <g id="surah-114" class="surah unread" data-surah="114" data-name="An-Naas" data-minutes="0.5">
+    <title>114. An-Naas — 0.5 minutes</title>
+    <text x="998.38" y="108" transform="rotate(-90 998.38 108)">114</text>
+    <rect x="996.76" y="112" width="3.24" height="40"/>
+  </g>
+</svg>

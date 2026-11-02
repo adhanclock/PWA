@@ -1,0 +1,338 @@
+/* Salawat tab — ported from the PTX extension (css/smart-azan-clock.css) */
+/* ---- Salawat tab: Arabic salawat in large, airy Amiri on a softly lit panel ---- */
+.salawat-wrap {
+    min-height: 0;
+    padding-top: 0;
+    margin: 0;   /* same side margins as the Calendar and Settings tabs */
+}
+
+.salawat-scroll {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 6px 12px 12px;   /* keeps the footer buttons off the bottom edge */
+}
+
+/* ONE gilded card (double border, glass fill) holds the asma on top and the scrolling text
+   below; the gold prev / next chevrons sit inside the asma row at the left and right, the names
+   are columns. The row keeps its height when a salawat has no asma so the chevrons never vanish. */
+.salawat-card {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 0;            /* flush with the menu bar above and the bottom edge */
+    border: 1px solid rgba(255, 255, 255, 0.08);   /* same rounded card look as the Qur'an and Calendar cards */
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(6, 40, 28, 0.88), rgba(5, 33, 23, 0.92));   /* near-opaque so the lattice / ghost dome never sit behind the text */   /* near-opaque so the lattice / ghost dome never sit behind the text */
+    overflow: hidden;
+}
+
+.salawat-asma-row {
+    position: relative;
+    flex: 0 0 auto;           /* fixed above the scroll area */
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(231, 207, 134, 0.4);   /* hairline between the asma and the text */
+}
+
+/* prev / next: just the gold chevrons. In the flow beside the names (not pinned to the row's edges),
+   so with a single short name they hug it; with several names the names fill the row and the
+   chevrons end up at the edges anyway. */
+.salawat-asma-row {
+    justify-content: center;
+    gap: 6px;
+}
+
+.salawat-asma-row .quran-disp-nav {
+    position: static;
+    flex: 0 0 auto;
+    transform: none;
+    width: 38px;
+    height: 42px;
+}
+
+.salawat-asma-row .quran-disp-prev:hover { transform: translateX(-2px); }
+.salawat-asma-row .quran-disp-next:hover { transform: translateX(2px); }
+.salawat-asma-row .quran-disp-prev:active { transform: translateX(-2px) scale(0.88); }
+.salawat-asma-row .quran-disp-next:active { transform: translateX(2px) scale(0.88); }
+.salawat-asma-row .quran-disp-nav:disabled { transform: none; }
+
+/* one name (or just a title): the block takes only the room it needs, centred between the chevrons */
+.salawat-asma.single {
+    flex: 0 1 auto;
+}
+.salawat-asma.single .salawat-asma-name {
+    flex: 0 1 auto;
+}
+
+.salawat-asma-row.has-title {
+    padding-top: 40px;   /* room for the caption above the names, with air above the caption */
+}
+
+.salawat-asma-row.title-only {
+    min-height: 42px;   /* just tall enough for the arrows */
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.salawat-asma-row.title-only .salawat-asma-title { padding: 5px 0 0; }
+
+.salawat-asma-row .quran-disp-nav svg {
+    width: 32px;
+    height: 32px;
+}
+
+.salawat-arabic {
+    font-family: 'UthmanicHafs', 'Amiri', 'Scheherazade New', 'Al Bayan', 'Geeza Pro', 'Noto Naskh Arabic', serif;
+    font-size: 23px;
+    line-height: 2.1;
+    text-align: center;
+    white-space: pre-line;
+    color: #fffdf2;
+    padding: 6px 4px 2px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+    word-spacing: 0.1em;
+}
+
+#salawatCheckRow { margin-top: 10px; }
+
+.salawat-arabic.salawat-xl { font-size: 31px; }
+.salawat-arabic.salawat-md { font-size: 27px; }
+.salawat-arabic.salawat-sm { font-size: 23px; }
+.salawat-arabic:empty { display: none; }
+
+.salawat-status {
+    color: #adb5bd;
+    font-size: 22px;
+    padding: 24px 0;
+}
+
+.salawat-foot {
+    flex: 0 0 auto;
+    margin-top: 14px;
+    padding: 10px 2px 0;
+    border-top: 1px solid rgba(231, 207, 134, 0.4);   /* hairline above the footer, which sits at the end of the scrolling text */
+}
+
+.salawat-nav {
+    flex: 0 0 auto;
+    gap: 8px;
+}
+
+.salawat-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    background: rgba(194, 168, 106, 0.08);
+    border: 1px solid rgba(194, 168, 106, 0.38);
+    border-radius: 50%;
+    color: #e7cf86;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.salawat-nav-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.salawat-nav-btn:hover:not(:disabled) {
+    background: rgba(194, 168, 106, 0.18);
+    color: #fff;   /* the source link would otherwise pick up the blue link hover colour */
+}
+
+.salawat-nav-btn:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+/* names of Allah named in the salawat: gilded plaques with a double border and star ornaments */
+.salawat-asma {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.salawat-asma-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* centre each name vertically when a neighbour is taller */
+    flex: 1 1 90px;
+    min-width: 0;
+    padding: 2px 8px;
+}
+
+.salawat-asma-name + .salawat-asma-name {
+    border-left: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+.salawat-asma-ar {
+    font-family: 'UthmanicHafs', 'Amiri', 'Scheherazade New', 'Al Bayan', 'Geeza Pro', 'Noto Naskh Arabic', serif;
+    font-size: 28px;
+    line-height: 1.4;     /* tight between wrapped lines of a long name ... */
+    padding: 8px 0;       /* ... with the room above and below kept (same height as before for one line) so the gradient fill never clips the diacritics */
+    background: linear-gradient(180deg, #fdeeb8 0%, #e7cf86 55%, #d4af37 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #e7cf86;
+}
+
+.salawat-asma-en {
+    margin-top: 2px;
+    font-size: 10px;
+    line-height: 1.3;
+    letter-spacing: 0.03em;
+    color: #cfc7a6;
+}
+
+.salawat-more {
+    margin-top: 12px;
+}
+
+.salawat-translit {
+    font-size: 14px;
+    line-height: 1.7;
+    font-style: italic;
+    color: #bfb89c;
+}
+
+.salawat-en {
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #e4dfcd;
+}
+
+/* footer on/off toggles for transliteration + English: lit gold when shown */
+.salawat-toggle {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    opacity: 0.55;
+}
+
+.salawat-toggle.on {
+    opacity: 1;
+    background: rgba(212, 175, 55, 0.24);
+    border-color: rgba(231, 207, 134, 0.8);
+}
+
+.salawat-asma-title {
+    width: 100%;
+    padding: 2px 8px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #e7cf86;
+}
+
+.salawat-asma-title.small {
+    position: absolute;   /* a caption across the top of the row, so the chevrons stay beside the names and not out at the edges */
+    top: 14px;
+    left: 0;
+    right: 0;
+    width: auto;
+    padding: 0 12px;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    white-space: nowrap;   /* one line, even for a long title */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0.8;
+}
+
+.salawat-asma-tr {
+    margin-top: -2px;
+    font-size: 11px;
+    font-style: italic;
+    line-height: 1.3;
+    color: #e7cf86;
+    opacity: 0.85;
+}
+
+/* ---- Salawat page theme: a luminous emerald field (the Green Dome) edge-to-edge behind the tab,
+   with a soft light from above, a faint gold geometric lattice and a ghosted dome at the foot.
+   Bleeds past the .card-body px-3 padding like the Qur'an congrats overlay. ---- */
+#salawatTab {
+    position: relative;
+    isolation: isolate;
+    text-align: center;   /* the extension inherits this from its text-center card; without it the Arabic names sit right and the English left */
+    height: calc(100vh - 102px);
+    height: calc(100dvh - 102px);
+    min-height: 480px;
+}
+
+#salawatTab::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;       /* same box as the card */
+    border-radius: 16px;
+    background-image:
+        radial-gradient(120% 45% at 50% -8%, rgba(170, 245, 200, 0.20), transparent 65%),
+        radial-gradient(110% 40% at 50% 108%, rgba(212, 175, 55, 0.20), transparent 65%),
+        url("../images/salawat-pattern.svg"),
+        linear-gradient(180deg, #176143 0%, #0f4d36 50%, #0a3b2a 100%);
+    background-repeat: no-repeat, no-repeat, repeat, no-repeat;
+    background-size: auto, auto, 64px 64px, auto;
+    background-position: center top, center bottom, center, center;
+}
+
+#salawatTab::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    bottom: 54px;
+    width: 190px;
+    height: 190px;
+    transform: translateX(-50%);
+    background: url("../images/salawat.svg") center / contain no-repeat;
+    opacity: 0.06;
+    pointer-events: none;
+}
+
+/* slim, rounded gold scrollbar that floats over the green (no solid track) */
+#salawatTab .salawat-scroll { scrollbar-width: thin; scrollbar-color: rgba(231, 207, 134, 0.55) transparent; }
+#salawatTab .salawat-scroll::-webkit-scrollbar { width: 6px; }
+#salawatTab .salawat-scroll::-webkit-scrollbar-track { background: transparent; margin: 8px 0; }
+#salawatTab .salawat-scroll::-webkit-scrollbar-thumb { background: rgba(231, 207, 134, 0.5); border-radius: 6px; }
+#salawatTab .salawat-scroll::-webkit-scrollbar-thumb:hover { background: rgba(231, 207, 134, 0.85); }
+
+#salawatTab .salawat-translit { color: #ecdfae; }
+#salawatTab .salawat-en { color: #cfcbb6; }
+#salawatTab .salawat-status { color: #e3dcb9; }
+
+/* ---- Salawat refinements ---- */
+/* gentle cross-fade between salawat (opacity only, no movement): salawatLoad adds .salawat-out
+   to the card (the text fades out, the frame and chevrons stay put), and salawatRender removes it */
+#salawatAsma,
+#salawatScroll {
+    transition: opacity 0.2s ease;
+}
+
+.salawat-out #salawatAsma,
+.salawat-out #salawatScroll {
+    opacity: 0;
+}
+
+/* the read check glows gold-green when done */
+#salawatCheck.done { box-shadow: 0 0 10px rgba(34, 197, 94, 0.65); }

@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPause, faSearch, faCheck, faEnvelope, faArrowsRotate, faGear, faBookOpen, faInfoCircle, faXmark, faPlay, faShieldHalved, faMinus, faPlus, faStop, faCheckSquare, faBell, faPlug, faBackward } from '@fortawesome/free-solid-svg-icons'
+import { faPause, faSearch, faCheck, faEnvelope, faArrowsRotate, faGear, faBookOpen, faInfoCircle, faXmark, faPlay, faShieldHalved, faMinus, faPlus, faStop, faCheckSquare, faBell, faPlug, faBackward, faCalendarDays } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faGoogle, faEbay, faChrome, faRaspberryPi, faAndroid } from "@fortawesome/free-brands-svg-icons"
 
 export const FontAwesome = {
@@ -26,5 +26,6 @@ export const FontAwesome = {
     RPi: <FontAwesomeIcon icon={faRaspberryPi} />,
     Android: <FontAwesomeIcon icon={faAndroid} />,
     Pause: <FontAwesomeIcon icon={faPause} />,
-    Backward: <FontAwesomeIcon icon={faBackward} />
+    Backward: <FontAwesomeIcon icon={faBackward} />,
+    Calendar: <FontAwesomeIcon icon={faCalendarDays} />
 }
