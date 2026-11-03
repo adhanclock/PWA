@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>How to Set Up a Free Adhan Clock on Android | AdhanClock</title>
+    <meta name="description" content="Turn any Android tablet or old phone into an adhan clock in 3 steps: get a device, add AdhanClock.com to your home screen, run it. Free and works offline.">
+    <link rel="canonical" href="https://adhanclock.com/setup/">
+    <meta name="theme-color" content="#0b1a2b">
+
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="AdhanClock">
+    <meta property="og:url" content="https://adhanclock.com/setup/">
+    <meta property="og:title" content="Set up your own adhan clock in 3 steps">
+    <meta property="og:description" content="Get an Android tablet or old phone, add AdhanClock.com to your home screen, and run it. Free, no sign-up, works offline.">
+    <meta property="og:image" content="https://adhanclock.com/setup/og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="AdhanClock showing prayer times on a tablet">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to set up a free adhan clock on Android",
+        "description": "Turn any Android tablet or old phone into an adhan clock using AdhanClock.com.",
+        "image": "https://adhanclock.com/setup/og.jpg",
+        "totalTime": "PT1M",
+        "estimatedCost": { "@type": "MonetaryAmount", "currency": "USD", "value": "0" },
+        "tool": [{ "@type": "HowToTool", "name": "Android tablet or phone" }, { "@type": "HowToTool", "name": "Google Chrome" }],
+        "step": [
+            { "@type": "HowToStep", "position": 1, "name": "Get", "text": "Get an Android tablet or an old Android phone.", "url": "https://adhanclock.com/setup/#1" },
+            { "@type": "HowToStep", "position": 2, "name": "Add", "text": "Open adhanclock.com in Chrome, tap the menu and choose Add to Home screen.", "url": "https://adhanclock.com/setup/#2" },
+            { "@type": "HowToStep", "position": 3, "name": "Run", "text": "Open AdhanClock from your home screen and place the device on a dock, or in a wall or fridge holder.", "url": "https://adhanclock.com/setup/#3" }
+        ]
+    }
+    </script>
+    <style>
+        :root {
+            --bg: #0b1a2b; --card: #13293f; --line: #25496d; --gold: #ffc107; --green: #3ddc84;
+            --text: #f3f5f7; --muted: #9fb3c8;
+        }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html, body { height: 100%; margin: 0; overflow: hidden; }
+        body { background: radial-gradient(120% 80% at 50% 0%, #1a3b60, var(--bg) 65%); color: var(--text);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; text-align: center;
+            display: flex; flex-direction: column; }
+
+        /* header + story progress */
+        header { padding: 14px 16px 0; max-width: 640px; width: 100%; margin: 0 auto; }
+        .title { margin: 6px 0 0; font-size: clamp(1.05rem, 4.4vw, 1.5rem); font-weight: 700; line-height: 1.25; }
+        .title a { color: var(--gold); white-space: nowrap; text-decoration: none; }
+        .title a:hover { text-decoration: underline; }
+
+        .track { flex: 1; display: flex; width: 100%; min-height: 0; transition: transform .6s cubic-bezier(.6, .1, .2, 1); }
+        .slide { flex: 0 0 100%; height: 100%; display: flex; flex-direction: column; align-items: center;
+            justify-content: flex-start; padding: 14px 8px 18px; gap: 8px; }
+        .steps { list-style: none; margin: 14px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+        .steps li { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 10px 6px; border-radius: 14px;
+            background: var(--card); border: 1px solid transparent; opacity: .45; transition: opacity .4s, border-color .4s, transform .4s; }
+        .steps b { font-size: clamp(1.15rem, 4.6vw, 1.5rem); }
+        .steps small { color: var(--muted); font-size: clamp(.72rem, 2.8vw, .85rem); line-height: 1.25; }
+        .steps li { cursor: pointer; }
+        .steps li:hover, .steps li:focus-visible { opacity: 1; outline: none; border-color: var(--line); }
+        .steps li.cur:hover { border-color: var(--gold); }
+        .steps .bar { display: block; width: 70%; height: 4px; margin: 4px 0 3px; border-radius: 4px; background: rgba(255,255,255,.15); overflow: hidden; }
+        .steps .bar em { display: block; height: 100%; width: 0; background: var(--gold); }
+        .steps li.done .bar em { background: var(--green); }
+        .steps .num { width: 26px; height: 26px; font-size: .9rem; background: #25496d; color: var(--text); }
+        .steps li.cur { opacity: 1; border-color: var(--gold); transform: translateY(-2px); }
+        .steps li.cur .num { background: var(--gold); color: #111; }
+        .steps li.done { opacity: .85; }
+        .steps li.done .num { background: var(--green); color: #063; font-size: 0; }
+        .steps li.done .num::after { content: "\2713"; font-size: .9rem; }
+        .num { display: inline-flex; width: 30px; height: 30px; border-radius: 50%; background: var(--gold); color: #111;
+            font-weight: 800; align-items: center; justify-content: center; }
+        h2 { font-size: clamp(1.5rem, 5.6vw, 2.3rem); margin: 0; line-height: 1.15; }
+        .stage { width: 100%; max-width: 780px; max-height: 64vh; height: auto; overflow: hidden; }
+        .chips { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; min-height: 36px; }
+        .chip { background: var(--card); border: 1px solid var(--line); border-radius: 99px; padding: 6px 14px; font-size: .95rem; }
+        .cta { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+        .btn { display: inline-block; background: var(--gold); color: #111; font-weight: 700; text-decoration: none;
+            padding: 9px 18px; border-radius: 10px; border: 0; font-size: .9rem; cursor: pointer; }
+        .small { color: var(--muted); font-size: .85rem; }
+
+
+        /* ---------- animation toolkit ---------- */
+        /* everything animates only on the active slide, so a scene replays on each visit */
+        .slide:not(.active) * { animation: none !important; }
+        .fb { transform-box: fill-box; transform-origin: center; }
+        .t { font-family: system-ui, sans-serif; }
+
+        /* a layer that is visible between --a and --b */
+        .lay { opacity: 0; animation: lin .35s ease var(--a, 0s) forwards, lout .35s ease var(--b, 999s) forwards; }
+        @keyframes lin { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes lout { from { opacity: 1; } to { opacity: 0; } }
+        .pop { transform-box: fill-box; transform-origin: center; opacity: 0; animation: pop .5s cubic-bezier(.3, 1.7, .5, 1) var(--a, 0s) forwards; }
+        @keyframes pop { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .ripple { transform-box: fill-box; transform-origin: center; fill: var(--gold); opacity: 0; animation: ripple .7s ease-out var(--a, 0s); }
+        @keyframes ripple { 0% { transform: scale(.3); opacity: .9; } 100% { transform: scale(2.4); opacity: 0; } }
+        .spark { transform-box: fill-box; transform-origin: center; opacity: 0; animation: spark .9s ease-out var(--a, 0s); }
+        @keyframes spark { 0% { transform: scale(0) rotate(0); opacity: 0; } 40% { opacity: 1; transform: scale(1.2) rotate(45deg); } 100% { transform: scale(0) rotate(90deg); opacity: 0; } }
+        .twinkle { animation: twinkle 2.2s ease-in-out var(--a, 0s) infinite both; }
+        @keyframes twinkle { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
+        .wave { fill: none; stroke: var(--gold); stroke-width: 4; stroke-linecap: round; transform-box: fill-box; opacity: 0;
+            animation: wave 1.8s ease-out var(--a, 0s) infinite; }
+        .wave.r { transform-origin: left center; } .wave.l { transform-origin: right center; }
+        @keyframes wave { 0% { opacity: 0; transform: scale(.6); } 25% { opacity: 1; } 100% { opacity: 0; transform: scale(1.5); } }
+        .type { transform-box: fill-box; transform-origin: right center; animation: type 1s steps(14) var(--a, 0s) both; }
+        @keyframes type { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+
+        /* scene 1: unboxing */
+        .s1-lid { transform-box: fill-box; transform-origin: center; animation: s1lid 6.5s ease-in-out both; }
+        @keyframes s1lid { 0%, 8% { transform: none; opacity: 1; } 14% { transform: translate(0, -18px) rotate(-6deg); }
+            24% { transform: translate(-150px, 30px) rotate(-80deg); opacity: 0; } 100% { transform: translate(-150px, 30px) rotate(-80deg); opacity: 0; } }
+        .s1-tab { animation: s1tab 6.5s cubic-bezier(.45, 0, .3, 1) both; }
+        @keyframes s1tab { 0%, 20% { transform: translate(0, 0); } 34% { transform: translate(0, -110px); } 38% { transform: translate(0, -96px); }
+            42%, 49% { transform: translate(0, -102px); } 64%, 100% { transform: translate(0, -62px) scale(1.5); } }
+        .s1-box { animation: s1box 6.5s ease-in both; }
+        @keyframes s1box { 0%, 47% { transform: none; opacity: 1; } 58%, 100% { transform: translateY(80px); opacity: 0; } }
+
+        /* scene 2: in hands */
+        .s2-in { animation: s2in .9s cubic-bezier(.2, .9, .3, 1.1) both; }
+        @keyframes s2in { from { transform: translateY(220px) rotate(6deg); } to { transform: none; } }
+        .s2-finger { animation: s2finger 10.5s ease-in-out both; }
+        @keyframes s2finger {
+            0%, 5.2% { transform: translate(352px, 252px); }
+            9.5% { transform: translate(120px, 105px); } 10.7% { transform: translate(120px, 105px) scale(.92); } 12% { transform: translate(120px, 105px); }
+            18.1% { transform: translate(352px, 252px); }
+            37.1% { transform: translate(298px, 80px); } 39% { transform: translate(298px, 80px) scale(.92); } 41% { transform: translate(298px, 80px); }
+            50.5% { transform: translate(263px, 135px); } 52.4% { transform: translate(263px, 135px) scale(.92); } 54.3% { transform: translate(263px, 135px); }
+            62.9%, 100% { transform: translate(352px, 252px); } }
+
+        /* scene 3: run + dock */
+        .s3-finger { animation: s3finger 4s ease-in-out both; }
+        @keyframes s3finger { 0%, 10% { transform: translate(352px, 252px); } 28% { transform: translate(160px, 105px); }
+            32% { transform: translate(160px, 105px) scale(.92); } 36% { transform: translate(160px, 105px); } 60% { transform: translate(352px, 252px); } 85%, 100% { transform: translate(440px, 420px); } }
+        .s3-zoom { animation: s3zoom .6s cubic-bezier(.3, 0, .2, 1) 1.35s both; }
+        @keyframes s3zoom { from { transform: scale(.12); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .s3-tab { animation: s3tab 1.3s cubic-bezier(.5, 0, .25, 1) 2.5s both; }
+        @keyframes s3tab { 0% { transform: none; } 40% { transform: translate(0, -10px) rotate(-3deg) scale(.95); } 100% { transform: translate(0, 42px) scale(.92); } }
+        .s3-hands { animation: s3hands .7s ease-in 4s both; }
+        @keyframes s3hands { to { transform: translateY(190px); opacity: 0; } }
+        .s3-hero { animation: s3hero 1s cubic-bezier(.3, 0, .2, 1) 4.4s both; }
+        @keyframes s3hero { to { transform: translateY(-22px) scale(1.25); } }
+        .s3-dock { animation: s3dock .6s cubic-bezier(.2, .9, .3, 1.2) 2s both; }
+        @keyframes s3dock { from { transform: translateY(80px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+        .reveal { opacity: 0; animation: lin .5s ease var(--a, 0s) forwards; }
+    </style>
+</head>
+
+<body>
+<header>
+    <h1 class="title">Set up your own adhan clock using <a href="/">AdhanClock.com</a></h1>
+    <ol class="steps" id="steps">
+        <li><span class="num">1</span><b>Get</b><i class="bar"><em></em></i><small>an Android tablet or old phone</small></li>
+        <li><span class="num">2</span><b>Add</b><i class="bar"><em></em></i><small>adhanclock.com to your home screen</small></li>
+        <li><span class="num">3</span><b>Run</b><i class="bar"><em></em></i><small>on a dock, or in a wall or fridge holder</small></li>
+    </ol>
+</header>
+
+<div class="track" id="track">
+
+    <!-- ================= scene 1: unbox ================= -->
+    <section class="slide" data-ms="6800">
+        <svg class="stage" viewBox="30 25 340 255" role="img" aria-label="An Android tablet rises out of its box and turns on">
+            <defs>
+                <linearGradient id="wp1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a7bd5"/><stop offset="1" stop-color="#7b4fd6"/></linearGradient>
+                <clipPath id="sc1"><rect x="-67" y="-40" width="134" height="80" rx="3"/></clipPath>
+            </defs>
+            <ellipse cx="200" cy="268" rx="130" ry="10" fill="#000" opacity=".25"/>
+
+            <!-- box back (inside) -->
+            <g class="s1-box"><rect x="114" y="146" width="172" height="12" fill="#7a4d22"/></g>
+
+            <!-- tablet -->
+            <g transform="translate(200 205)"><g class="s1-tab">
+                <rect x="-75" y="-48" width="150" height="96" rx="10" fill="#1e2329" stroke="#3a424c" stroke-width="2"/>
+                <circle cx="0" cy="-44" r="1.6" fill="#3a424c"/>
+                <g clip-path="url(#sc1)">
+                    <rect x="-67" y="-40" width="134" height="80" fill="#05080c"/>
+                    <!-- boot logo -->
+                    <g class="lay" style="--a:2.3s;--b:3.7s">
+                        <path d="M-12 8h24v-6a12 12 0 0 0-24 0z" fill="#3ddc84"/>
+                        <path d="M-7 -9l-4-6M7 -9l4-6" stroke="#3ddc84" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="-5" cy="-2" r="1.6" fill="#05080c"/><circle cx="5" cy="-2" r="1.6" fill="#05080c"/>
+                    </g>
+                    <!-- fresh home screen -->
+                    <g class="lay" style="--a:3.9s">
+                        <rect x="-67" y="-40" width="134" height="80" fill="url(#wp1)"/>
+                        <text class="t" x="0" y="-14" fill="#fff" font-size="15" font-weight="300" text-anchor="middle">9:41</text>
+                        <g fill="#fff" opacity=".9">
+                            <rect x="-46" y="10" width="14" height="14" rx="4"/><rect x="-22" y="10" width="14" height="14" rx="4"/>
+                            <rect x="2" y="10" width="14" height="14" rx="4"/><rect x="26" y="10" width="14" height="14" rx="4"/>
+                        </g>
+                    </g>
+                </g>
+            </g></g>
+
+            <!-- box front -->
+            <g class="s1-box">
+                <rect x="110" y="152" width="180" height="110" rx="4" fill="#c98d4f"/>
+                <rect x="250" y="152" width="40" height="110" rx="4" fill="#b37a40"/>
+                <rect x="110" y="152" width="180" height="8" fill="#a86f37"/>
+                <!-- bugdroid stamp -->
+                <g transform="translate(180 212)" opacity=".85">
+                    <path d="M-18 10h36v-8a18 18 0 0 0-36 0z" fill="#3ddc84"/>
+                    <path d="M-10 -14l-5-8M10 -14l5-8" stroke="#3ddc84" stroke-width="3" stroke-linecap="round"/>
+                    <circle cx="-7" cy="-3" r="2.4" fill="#c98d4f"/><circle cx="7" cy="-3" r="2.4" fill="#c98d4f"/>
+                </g>
+                <path d="M118 250h60" stroke="#a86f37" stroke-width="3" stroke-linecap="round"/>
+                <path d="M118 242h36" stroke="#a86f37" stroke-width="3" stroke-linecap="round"/>
+            </g>
+
+            <!-- lid -->
+            <g class="s1-lid">
+                <rect x="104" y="138" width="192" height="20" rx="4" fill="#d89b5b"/>
+                <rect x="188" y="138" width="24" height="20" fill="#f0d29c"/>
+            </g>
+
+            <!-- sparkles -->
+            <g fill="#ffc107">
+                <path class="spark" style="--a:2.2s" d="M110 70l4 10 10 4-10 4-4 10-4-10-10-4 10-4z"/>
+                <path class="spark" style="--a:2.4s" d="M296 60l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
+                <path class="spark" style="--a:2.6s" d="M300 140l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/>
+                <path class="spark" style="--a:2.5s" d="M96 150l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/>
+            </g>
+        </svg>
+        <div class="chips"><span class="chip">Any Android tablet</span><span class="chip">A spare phone works too</span></div>
+    </section>
+
+    <!-- ================= scene 2: set up in hands ================= -->
+    <section class="slide" data-ms="10500">
+        <svg class="stage" viewBox="30 25 340 255" role="img" aria-label="Hands hold the tablet; Chrome opens adhanclock.com and adds it to the home screen">
+            <defs>
+                <linearGradient id="wp2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a7bd5"/><stop offset="1" stop-color="#7b4fd6"/></linearGradient>
+                <clipPath id="sc2"><rect x="-110" y="-65" width="220" height="130" rx="4"/></clipPath>
+                <g id="hand-back">
+                    <path d="M-150 40l40 14-34 220-56-20z" fill="#3f7fbf"/>
+                    <ellipse cx="-118" cy="26" rx="24" ry="38" fill="#f1c27d" stroke="#d9a066" stroke-width="2"/>
+                </g>
+                <g id="hand-front">
+                    <rect x="-130" y="-6" width="34" height="16" rx="8" fill="#f1c27d" stroke="#d9a066" stroke-width="2" transform="rotate(-22 -130 2)"/>
+                </g>
+                <g id="finger"><g transform="rotate(-18)">
+                    <rect x="-18" y="96" width="54" height="320" fill="#3f7fbf"/>
+                    <rect x="-20" y="92" width="58" height="12" rx="4" fill="#5b97d1"/>
+                    <rect x="-16" y="42" width="52" height="56" rx="18" fill="#f1c27d" stroke="#d9a066" stroke-width="2"/>
+                    <path d="M14 56q10 0 14 6M14 70q10 0 14 6M14 84q8 0 12 5" fill="none" stroke="#d9a066" stroke-width="2" stroke-linecap="round"/>
+                    <ellipse cx="-14" cy="70" rx="8" ry="17" fill="#f1c27d" stroke="#d9a066" stroke-width="2" transform="rotate(14 -14 70)"/>
+                    <path d="M-9 8a9 9 0 0 1 18 0v48h-18z" fill="#f1c27d" stroke="#d9a066" stroke-width="2"/>
+                    <rect x="-6" y="1.5" width="12" height="12" rx="5" fill="#fbe3c6"/>
+                    <path d="M-5 26h10" stroke="#d9a066" stroke-width="1.6" stroke-linecap="round"/>
+                </g></g>
+                <g id="chrome">
+                    <circle r="11" fill="#fff"/>
+                    <circle r="7" fill="none" stroke="#db4437" stroke-width="6" stroke-dasharray="14.66 43.98" transform="rotate(-150)"/>
+                    <circle r="7" fill="none" stroke="#f4b400" stroke-width="6" stroke-dasharray="14.66 43.98" transform="rotate(-30)"/>
+                    <circle r="7" fill="none" stroke="#0f9d58" stroke-width="6" stroke-dasharray="14.66 43.98" transform="rotate(90)"/>
+                    <circle r="4.4" fill="#4285f4" stroke="#fff" stroke-width="1.8"/>
+                </g>
+                <g id="home-icons">
+                    <rect x="-110" y="-65" width="220" height="130" fill="url(#wp2)"/>
+                    <text class="t" x="40" y="-30" fill="#fff" font-size="22" font-weight="300" text-anchor="middle">9:41</text>
+                    <use href="#chrome" x="-80" y="-30"/>
+                    <text class="t" x="-80" y="-10" fill="#fff" font-size="7" text-anchor="middle">Chrome</text>
+                    <g fill="#fff" opacity=".85">
+                        <rect x="-93" y="34" width="24" height="24" rx="7"/><rect x="-53" y="34" width="24" height="24" rx="7"/>
+                        <rect x="-13" y="34" width="24" height="24" rx="7"/><rect x="27" y="34" width="24" height="24" rx="7"/><rect x="67" y="34" width="24" height="24" rx="7"/>
+                    </g>
+                </g>
+            </defs>
+
+            <g transform="translate(200 135)"><g class="s2-in">
+                <use href="#hand-back"/>
+                <rect x="-120" y="-75" width="240" height="150" rx="14" fill="#1e2329" stroke="#3a424c" stroke-width="2.5"/>
+                <circle cx="0" cy="-70" r="2" fill="#3a424c"/>
+                <g clip-path="url(#sc2)">
+                    <use href="#home-icons"/>
+                    <!-- chrome -->
+                    <g class="lay" style="--a:1.3s;--b:6.8s">
+                        <rect x="-110" y="-65" width="220" height="130" fill="#fff"/>
+                        <rect x="-110" y="-65" width="220" height="22" fill="#e8eaed"/>
+                        <rect x="-102" y="-60" width="182" height="13" rx="6.5" fill="#fff"/>
+                        <text class="t" x="-94" y="-50.5" fill="#202124" font-size="8.5">adhanclock.com</text>
+                        <rect class="type" style="--a:1.6s" x="-95" y="-59" width="66" height="11" fill="#fff"/>
+                        <g fill="#5f6368"><circle cx="98" cy="-58" r="1.4"/><circle cx="98" cy="-54" r="1.4"/><circle cx="98" cy="-50" r="1.4"/></g>
+                        <image class="lay" style="--a:2.7s" href="app-screen.jpg" x="-110" y="-43" width="220" height="108" preserveAspectRatio="xMidYMid slice"/>
+                        <!-- menu -->
+                        <g class="pop" style="--a:4.3s">
+                            <rect x="18" y="-46" width="88" height="58" rx="5" fill="#fff" stroke="#dadce0"/>
+                            <text class="t" x="26" y="-33" fill="#5f6368" font-size="7.5">New tab</text>
+                            <text class="t" x="26" y="-19" fill="#5f6368" font-size="7.5">Bookmarks</text>
+                            <rect x="21" y="-10" width="82" height="18" rx="4" fill="#ffc107"/>
+                            <text class="t" x="62" y="2.5" fill="#111" font-size="7.5" font-weight="700" text-anchor="middle">Add to Home screen</text>
+                        </g>
+                        <g class="lay" style="--a:5.8s">
+                            <rect x="-34" y="40" width="68" height="17" rx="8.5" fill="#3ddc84"/>
+                            <text class="t" x="0" y="51.5" fill="#063" font-size="8" font-weight="700" text-anchor="middle">&#10003; Added!</text>
+                        </g>
+                    </g>
+                    <!-- new icon on the home screen -->
+                    <g class="pop" style="--a:7.2s"><image href="../icon192.png" x="-53" y="-43" width="26" height="26"/></g>
+                    <text class="t lay" style="--a:7.4s" x="-40" y="-10" fill="#fff" font-size="7" text-anchor="middle">AdhanClock</text>
+                </g>
+                <use href="#hand-front"/>
+            </g></g>
+
+            <g class="spark" style="--a:7.3s" fill="#ffc107"><path d="M140 66l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/></g>
+            <g class="spark" style="--a:7.5s" fill="#ffc107"><path d="M186 78l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></g>
+
+            <circle class="ripple" style="--a:1.05s" cx="120" cy="105" r="12"/>
+            <circle class="ripple" style="--a:4.1s" cx="298" cy="80" r="12"/>
+            <circle class="ripple" style="--a:5.5s" cx="263" cy="135" r="12"/>
+            <g class="s2-finger"><use href="#finger"/></g>
+        </svg>
+        <div class="chips"><span class="chip">Open Chrome</span><span class="chip">Tap &#8942;</span><span class="chip">Add to Home screen</span></div>
+    </section>
+
+    <!-- ================= scene 3: run + dock ================= -->
+    <section class="slide" data-done="5000">
+        <svg class="stage" viewBox="30 45 340 215" role="img" aria-label="Tap the AdhanClock icon, place the tablet on its dock, and it plays the adhan">
+            <defs>
+                <clipPath id="sc3"><rect x="-110" y="-65" width="220" height="130" rx="4"/></clipPath>
+                <radialGradient id="glow3"><stop offset="0" stop-color="#ffc107" stop-opacity=".28"/><stop offset="1" stop-color="#ffc107" stop-opacity="0"/></radialGradient>
+            </defs>
+
+            <!-- night sky appears once docked -->
+            <g class="reveal" style="--a:4.4s">
+                <path d="M352 50a6 6 0 1 0 5 9.2 5 5 0 1 1-5-9.2z" fill="#ffc107"/>
+                <g fill="#fff">
+                    <circle class="twinkle" style="--a:4.5s" cx="60" cy="58" r="2"/>
+                    <circle class="twinkle" style="--a:5.1s" cx="100" cy="70" r="1.5"/>
+                    <circle class="twinkle" style="--a:4.8s" cx="300" cy="90" r="1.6"/>
+                    <circle class="twinkle" style="--a:5.4s" cx="40" cy="110" r="1.3"/>
+                    <circle class="twinkle" style="--a:5.7s" cx="370" cy="130" r="1.5"/>
+                </g>
+            </g>
+            <!-- once docked, the running clock zooms in to take the stage -->
+            <g transform="translate(200 200)"><g class="s3-hero"><g transform="translate(-200 -200)">
+            <ellipse class="reveal" style="--a:4.6s" cx="200" cy="178" rx="160" ry="100" fill="url(#glow3)"/>
+            <ellipse class="reveal" style="--a:2.2s" cx="200" cy="257" rx="140" ry="9" fill="#000" opacity=".25"/>
+
+            <g transform="translate(200 135)"><g class="s3-tab">
+                <g class="s3-hands"><use href="#hand-back"/></g>
+                <rect x="-120" y="-75" width="240" height="150" rx="14" fill="#1e2329" stroke="#3a424c" stroke-width="2.5"/>
+                <circle cx="0" cy="-70" r="2" fill="#3a424c"/>
+                <g clip-path="url(#sc3)">
+                    <use href="#home-icons"/>
+                    <image href="../icon192.png" x="-53" y="-43" width="26" height="26"/>
+                    <text class="t" x="-40" y="-10" fill="#fff" font-size="7" text-anchor="middle">AdhanClock</text>
+                    <!-- app opens from its icon -->
+                    <g transform="translate(-40 -30)"><g class="s3-zoom">
+                        <image href="app-screen.jpg" x="-70" y="-35" width="220" height="130" preserveAspectRatio="xMidYMid slice"/>
+                    </g></g>
+                </g>
+                <g class="s3-hands"><use href="#hand-front"/></g>
+            </g></g>
+
+            <!-- dock -->
+            <g class="s3-dock">
+                <path d="M124 255c-44 0-66 10-124 30" fill="none" stroke="#1b1f24" stroke-width="5" stroke-linecap="round"/>
+                <path d="M124 258h152l-6-8H130z" fill="#2c333b"/>
+                <rect x="138" y="237" width="124" height="14" rx="5" fill="#3d4652"/>
+                <rect x="138" y="237" width="124" height="3" rx="1.5" fill="#4d5866"/>
+            </g>
+
+            <!-- adhan -->
+            <path class="wave r" style="--a:5s" d="M320 160q8 14 0 28"/>
+            <path class="wave r" style="--a:5.3s" d="M330 150q14 24 0 48"/>
+            <path class="wave l" style="--a:5s" d="M80 160q-8 14 0 28"/>
+            <path class="wave l" style="--a:5.3s" d="M70 150q-14 24 0 48"/>
+            </g></g></g>
+
+            <circle class="ripple" style="--a:1.2s" cx="160" cy="105" r="12"/>
+            <g class="s3-finger"><use href="#finger"/></g>
+        </svg>
+        <div class="cta reveal" style="--a:5.6s">
+            <a class="btn" href="/">Open AdhanClock.com</a>
+        </div>
+        <div class="small reveal" style="--a:6s">Free &middot; No sign-up &middot; Works offline</div>
+    </section>
+</div>
+
+
+<script>
+(function () {
+    var track = document.getElementById('track');
+    var slides = track.children, n = slides.length, i = 0, timer;
+    var steps = document.getElementById('steps');
+
+    for (var k = 0; k < n; k++) {
+        (function (k) {
+            var li = steps.children[k];
+            li.tabIndex = 0;
+            li.setAttribute('role', 'button');
+            li.onclick = function () { go(k); };
+            li.onkeydown = function (e) { if (e.key === 'Enter') go(k); };
+        })(k);
+    }
+
+    // scenes play like a video: each one advances when its animation ends
+    function go(to) {
+        i = Math.max(0, Math.min(n - 1, to));
+        track.style.transform = 'translateX(' + (-100 * i) + '%)';
+        clearTimeout(timer);
+        var ms = +slides[i].getAttribute('data-ms') || 0;
+        var doneMs = +slides[i].getAttribute('data-done') || 0;
+        for (var k = 0; k < n; k++) {
+            slides[k].classList.toggle('active', k === i);
+            steps.children[k].className = k < i ? 'done' : k === i ? 'cur' : '';
+            var b = steps.children[k].querySelector('em');
+            b.style.transition = 'none';
+            b.style.width = k < i ? '100%' : '0';
+        }
+        var cur = steps.children[i].querySelector('em');
+        cur.offsetWidth;
+        cur.style.transition = 'width ' + (ms || doneMs) + 'ms linear';
+        cur.style.width = '100%';
+        if (ms) timer = setTimeout(function () { go(i + 1); }, ms);
+        // the last step has no next scene; it ticks itself off once the tablet is docked
+        else if (doneMs) timer = setTimeout(function () { steps.children[i].className = 'done'; }, doneMs);
+        history.replaceState(null, '', '#' + (i + 1));
+    }
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight' || e.key === ' ') go(i + 1);
+        if (e.key === 'ArrowLeft') go(i - 1);
+    });
+
+    var x0 = null;
+    document.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    document.addEventListener('touchend', function (e) {
+        if (x0 === null) return;
+        var dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 50) go(i + (dx < 0 ? 1 : -1));
+        x0 = null;
+    });
+
+    go(parseInt(location.hash.slice(1), 10) - 1 || 0);
+})();
+</script>
+</body>
+
+</html>
