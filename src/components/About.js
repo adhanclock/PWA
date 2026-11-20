@@ -38,14 +38,14 @@ export default function About() {
 
             <p></p>
 
-            <div className='badge bg-warning text-dark'>Android or RPi Devices</div>
+            <div className='badge about-badge text-dark'>Android or RPi Devices</div>
             <div className='ps-1 mt-1'>
                 Add adhanclock.com to your home screen and run it.
             </div>
 
             <p></p>
 
-            <div className='badge bg-warning text-dark'>Amazon Echo Devices</div>
+            <div className='badge about-badge text-dark'>Amazon Echo Devices</div>
             <div className='ps-1 mt-1'>
                 Say, "Alexa, open Silk browser", navigate to adhanclock.com and click on the button to keep it always ON.
             </div>

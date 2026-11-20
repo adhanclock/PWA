@@ -349,3 +349,8 @@ body::after {
   border: 1px solid rgba(231, 207, 134, 0.3);
   border-radius: 12px;
 }
+
+/* section titles in the Info tab: the same gold as the praise line above, as a solid chip */
+.badge.about-badge {
+  background-color: #e7cf86;
+}

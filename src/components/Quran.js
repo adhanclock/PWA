@@ -39,6 +39,8 @@ const Heart = () => (
     </Svg>
 );
 
+const CURSOR_MIN = 8;   /* viewBox units (~3px at popup width) */
+
 function KhatmBar({ completed, current }) {
     const host = useRef(null);
     const [loaded, setLoaded] = useState(false);
@@ -72,6 +74,30 @@ function KhatmBar({ completed, current }) {
             g.classList.toggle('current', isCur);
             g.classList.toggle('unread', !isDone && !isCur);
         }
+
+        /* "you are here" marker: segments are exactly time-proportional (so e.g. Al-Kahf sits where it
+           should), which leaves short surahs sub-pixel. Draw a gold overlay on the loaded surah that is
+           never narrower than CURSOR_MIN viewBox units, centred on the real segment so nothing shifts.
+           Hidden when the loaded surah is already read. */
+        const svg = host.current.querySelector('svg');
+        if (!svg) return;
+        let cur = svg.querySelector('#quranKhatmCursor');
+        const r = done.has(current) ? null : svg.querySelector('#surah-' + String(current).padStart(3, '0') + ' rect');
+        if (!r) { if (cur) cur.setAttribute('visibility', 'hidden'); return; }
+        if (!cur) {
+            cur = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+            cur.id = 'quranKhatmCursor';
+            cur.setAttribute('fill', '#fbbf24');
+            cur.setAttribute('pointer-events', 'none');
+            svg.appendChild(cur);
+        }
+        const x = parseFloat(r.getAttribute('x')), w = parseFloat(r.getAttribute('width'));
+        const cw = Math.max(w, CURSOR_MIN);
+        cur.setAttribute('x', Math.min(Math.max(x + w / 2 - cw / 2, 0), 1000 - cw));
+        cur.setAttribute('width', cw);
+        cur.setAttribute('y', r.getAttribute('y'));
+        cur.setAttribute('height', r.getAttribute('height'));
+        cur.setAttribute('visibility', 'visible');
     }, [loaded, completed, current]);
 
     return <div id="quranKhatmBar" ref={host} className="quran-khatm-bar" />;
@@ -308,7 +334,8 @@ export default function Quran() {
                         <div className="quran-congrats-flourish" aria-hidden="true"><span className="quran-congrats-diamond"></span></div>
                         <div className="quran-congrats-text">Congratulations on your khatm!</div>
                         <div className="quran-congrats-dua csb" dir="rtl" lang="ar">
-                            <p>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ <span className="quran-dua-divider" aria-hidden="true">،</span> الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ<span className="quran-dua-comma">،</span> وَالصَّلَاةُ وَالسَّلَامُ عَلَى رَسُولِنَا مُحَمَّدٍ وَعَلَى آلِهِ وَأَصْحَابِهِ أَجْمَعِينَ <span className="quran-dua-divider" aria-hidden="true">،</span> اللَّهُمَّ رَبَّنَا يَا رَبَّنَا<span className="quran-dua-comma">،</span> تَقَبَّلْ مِنَّا إِنَّكَ أَنْتَ السَّمِيعُ الْعَلِيمُ<span className="quran-dua-comma">،</span> وَتُبْ عَلَيْنَا يَا مَوْلَانَا إِنَّكَ أَنْتَ التَّوَّابُ الرَّحِيمُ <span className="quran-dua-divider" aria-hidden="true">،</span> وَاهْدِنَا إِلَى الْحَقِّ وَإِلَى صِرَاطٍ مُسْتَقِيمٍ<span className="quran-dua-comma">،</span> وَوَفِّقْنَا لِاتِّبَاعِهِ<span className="quran-dua-comma">،</span> بِبَرَكَةِ الْقُرْآنِ الْعَظِيمِ وَبِحُرْمَةِ حَبِيبِكَ وَرَسُولِكَ الْكَرِيمِ <span className="quran-dua-divider" aria-hidden="true">،</span> وَاعْفُ عَنَّا يَا كَرِيمُ<span className="quran-dua-comma">،</span> وَاعْفُ عَنَّا يَا رَحِيمُ<span className="quran-dua-comma">،</span> وَاغْفِرْ لَنَا ذُنُوبَنَا بِفَضْلِكَ وَكَرَمِكَ يَا أَكْرَمَ الْأَكْرَمِينَ وَيَا أَرْحَمَ الرَّاحِمِينَ <span className="quran-dua-divider" aria-hidden="true">،</span> اللَّهُمَّ زَيِّنَّا بِزِينَةِ الْقُرْآنِ<span className="quran-dua-comma">،</span> وَأَكْرِمْنَا بِكَرَامَةِ الْقُرْآنِ<span className="quran-dua-comma">،</span> وَشَرِّفْنَا بِشَرَافَةِ الْقُرْآنِ<span className="quran-dua-comma">،</span> وَأَلْبِسْنَا خِلْعَةَ الْقُرْآنِ<span className="quran-dua-comma">،</span> وَأَدْخِلْنَا الْجَنَّةَ بِشَفَاعَةِ الْقُرْآنِ <span className="quran-dua-divider" aria-hidden="true">،</span> وَارْحَمْ جَمِيعَ أُمَّةِ مُحَمَّدٍ يَا رَحِيمُ يَا رَحْمَٰنُ <span className="quran-dua-divider" aria-hidden="true">،</span> اللَّهُمَّ اجْعَلِ الْقُرْآنَ لَنَا فِي الدُّنْيَا قَرِينًا<span className="quran-dua-comma">،</span> وَفِي الْقَبْرِ مُؤْنِسًا<span className="quran-dua-comma">،</span> وَيَوْمَ الْقِيَامَةِ شَفِيعًا<span className="quran-dua-comma">،</span> وَعَلَى الصِّرَاطِ نُورًا<span className="quran-dua-comma">،</span> وَإِلَى الْجَنَّةِ رَفِيقًا<span className="quran-dua-comma">،</span> وَمِنَ النَّارِ سِتْرًا وَحِجَابًا<span className="quran-dua-comma">،</span> وَإِلَى الْخَيْرَاتِ كُلِّهَا دَلِيلًا وَإِمَامًا <span className="quran-dua-divider" aria-hidden="true">،</span> بِفَضْلِكَ وَجُودِكَ وَكَرَمِكَ يَا أَكْرَمَ الْأَكْرَمِينَ وَيَا أَرْحَمَ الرَّاحِمِينَ <span className="quran-dua-divider" aria-hidden="true">،</span> يَا قَاضِيَ الْحَاجَاتِ<span className="quran-dua-comma">،</span> وَيَا مُجِيبَ الدَّعَوَاتِ<span className="quran-dua-comma">،</span> اسْتَجِبْ لِدُعَائِنَا بِرَحْمَتِكَ يَا أَرْحَمَ الرَّاحِمِينَ <span className="quran-dua-divider" aria-hidden="true">،</span> وَصَلَّى اللَّهُ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ أَجْمَعِينَ <span className="quran-dua-divider" aria-hidden="true">،</span> سُبْحَانَ رَبِّكَ رَبِّ الْعِزَّةِ عَمَّا يَصِفُونَ<span className="quran-dua-comma">،</span> وَسَلَامٌ عَلَى الْمُرْسَلِينَ<span className="quran-dua-comma">،</span> وَالْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ</p>
+                            <p>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+                            <p>الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ<span className="quran-dua-comma">،</span> وَالصَّلَاةُ وَالسَّلَامُ عَلَى حَبِيبِنَا وَرَسُولِنَا مُحَمَّدٍ وَعَلَى آلِهِ وَأَصْحَابِهِ أَجْمَعِينَ <span className="quran-dua-divider" aria-hidden="true">،</span> اللَّهُمَّ رَبَّنَا يَا رَبَّنَا<span className="quran-dua-comma">،</span> تَقَبَّلْ مِنَّا إِنَّكَ أَنْتَ السَّمِيعُ الْعَلِيمُ<span className="quran-dua-comma">،</span> وَتُبْ عَلَيْنَا يَا مَوْلَانَا إِنَّكَ أَنْتَ التَّوَّابُ الرَّحِيمُ <span className="quran-dua-divider" aria-hidden="true">،</span> وَاهْدِنَا إِلَى الْحَقِّ وَإِلَى صِرَاطٍ مُسْتَقِيمٍ<span className="quran-dua-comma">،</span> وَوَفِّقْنَا لِاتِّبَاعِ الْحَقِّ<span className="quran-dua-comma">،</span> بِبَرَكَةِ الْقُرْآنِ الْعَظِيمِ وَبِحُرْمَةِ حَبِيبِكَ وَرَسُولِكَ الْكَرِيمِ <span className="quran-dua-divider" aria-hidden="true">،</span> وَاعْفُ عَنَّا يَا كَرِيمُ<span className="quran-dua-comma">،</span> وَاعْفُ عَنَّا يَا رَحِيمُ<span className="quran-dua-comma">،</span> وَاغْفِرْ لَنَا ذُنُوبَنَا بِفَضْلِكَ وَكَرَمِكَ<span className="quran-dua-comma">،</span> يَا أَكْرَمَ الْأَكْرَمِينَ وَيَا أَرْحَمَ الرَّاحِمِينَ <span className="quran-dua-divider" aria-hidden="true">،</span> اللَّهُمَّ زَيِّنَّا بِزِينَةِ الْقُرْآنِ<span className="quran-dua-comma">،</span> وَأَكْرِمْنَا بِكَرَامَةِ الْقُرْآنِ<span className="quran-dua-comma">،</span> وَشَرِّفْنَا بِشَرَافَةِ الْقُرْآنِ<span className="quran-dua-comma">،</span> وَأَلْبِسْنَا خِلْعَةَ الْقُرْآنِ<span className="quran-dua-comma">،</span> وَأَدْخِلْنَا الْجَنَّةَ بِشَفَاعَةِ الْقُرْآنِ<span className="quran-dua-comma">،</span> وَارْحَمْ جَمِيعَ أُمَّةِ مُحَمَّدٍ<span className="quran-dua-comma">،</span> يَا رَحِيمُ يَا رَحْمَٰنُ <span className="quran-dua-divider" aria-hidden="true">،</span> اللَّهُمَّ اجْعَلِ الْقُرْآنَ لَنَا فِي الدُّنْيَا قَرِينًا<span className="quran-dua-comma">،</span> وَفِي الْقَبْرِ مُؤْنِسًا<span className="quran-dua-comma">،</span> وَيَوْمَ الْقِيَامَةِ شَفِيعًا<span className="quran-dua-comma">،</span> وَعَلَى الصِّرَاطِ نُورًا<span className="quran-dua-comma">،</span> وَإِلَى الْجَنَّةِ رَفِيقًا<span className="quran-dua-comma">،</span> وَمِنَ النَّارِ سِتْرًا وَحِجَابًا<span className="quran-dua-comma">،</span> وَإِلَى الْخَيْرَاتِ كُلِّهَا دَلِيلًا وَإِمَامًا<span className="quran-dua-comma">،</span> بِفَضْلِكَ وَجُودِكَ وَكَرَمِكَ<span className="quran-dua-comma">،</span> يَا أَكْرَمَ الْأَكْرَمِينَ وَيَا أَرْحَمَ الرَّاحِمِينَ <span className="quran-dua-divider" aria-hidden="true">،</span> يَا قَاضِيَ الْحَاجَاتِ<span className="quran-dua-comma">،</span> وَيَا مُجِيبَ الدَّعَوَاتِ<span className="quran-dua-comma">،</span> اسْتَجِبْ لِدُعَائِنَا بِرَحْمَتِكَ<span className="quran-dua-comma">،</span> يَا أَرْحَمَ الرَّاحِمِينَ <span className="quran-dua-divider" aria-hidden="true">،</span> اللَّهُمَّ تَقَبَّلْ مِنَّا تِلَاوَةَ كِتَابِكَ<span className="quran-dua-comma">،</span> وَارْزُقْنَا فَهْمَهُ وَالْعَمَلَ بِهِ <span className="quran-dua-divider" aria-hidden="true">،</span> وَصَلَّى اللَّهُ عَلَى سَيِّدِنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ أَجْمَعِينَ <span className="quran-dua-divider" aria-hidden="true">،</span> سُبْحَانَ رَبِّكَ رَبِّ الْعِزَّةِ عَمَّا يَصِفُونَ<span className="quran-dua-comma">،</span> وَسَلَامٌ عَلَى الْمُرْسَلِينَ<span className="quran-dua-comma">،</span> وَالْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ</p>
                         </div>
                         <button type="button" className="quran-congrats-reset" onClick={() => QuranPlayer.resetKhatm()}>Restart</button>
                     </div>
